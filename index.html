@@ -1,0 +1,54 @@
+<html ng-app="appMain">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="initial-scale=1">
+	<title>Material Admin</title>
+	<link rel="stylesheet" href="bower_components/angular-material/angular-material.css">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body layout="column">
+	<div ng-include src="'app/views/header.html'"></div>
+	
+	<div layout="row" flex>
+		<md-sidenav layout="column" class="md-sidenav-left md-whiteframe-z2" md-component-id="left"  md-is-locked-open="$mdMedia('gt-sm')">
+			<md-list ng-controller="SideNavController as vm">
+				<md-list>
+					<md-list-item class="md-2-line" ng-click="vm.navigateTo('/profile')">
+						<img ng-src="app/images/avatar-08.png" class="md-avatar" alt="Avatar" />
+						<div class="md-list-item-text" layout="column">
+							<h3>Steven Medonza</h3>
+							<h4>Administrator</h4>
+						<md-icon md-font-set="material-icons" ng-click="vm.navigateTo('/logout')" class="md-secondary">exit_to_app</md-icon>
+						</div>
+					</md-list-item>
+					<md-divider></md-divider>
+					<md-list>
+						 <md-list-item ng-click="vm.navigateTo('/')">
+							<md-icon md-font-set="material-icons">web</md-icon>
+							<p> Dashboard</p>	
+						</md-list-item>
+					</md-list>
+					<md-list>
+						 <md-list-item ng-click="vm.navigateTo('/customers')">
+							<md-icon md-font-set="material-icons">person</md-icon>
+							<p> Customers</p>	
+						</md-list-item>
+					</md-list>
+				</md-list>
+			</md-list>
+		</md-sidenav>
+		<div ng-view="" layout="column" flex></div>
+	</div>
+	
+	<script src="bower_components/angular/angular.js"></script>
+	<script src="bower_components/angular-animate/angular-animate.js"></script>
+	<script src="bower_components/angular-aria/angular-aria.js"></script>
+	<script src="bower_components/angular-route/angular-route.js"></script>
+	<script src="bower_components/angular-material/angular-material.js"></script>
+	<script src="app/app.js"></script>
+	<script src="app/controllers/homeController.js"></script>
+	<script src="app/controllers/sideNavController.js"></script>
+	<script src="app/controllers/customerController.js"></script>
+	<script src="app/routes.js"></script>
+</body>
+</html>
