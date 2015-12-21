@@ -4,9 +4,9 @@
 	angular.module('appMain', ['ngRoute', 'ngMaterial'])
 		.config(function ($mdThemingProvider) {
 			$mdThemingProvider.theme('default')
-				.primaryPalette('red')
-				.accentPalette('blue')
-				.warnPalette('blue')
+				.primaryPalette('blue-grey')
+				.accentPalette('red')
+				.warnPalette('red')
 				.backgroundPalette('grey');
 			$mdThemingProvider.definePalette('whitePalette', {
 				'50': 'fff',
