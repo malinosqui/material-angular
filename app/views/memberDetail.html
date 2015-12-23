@@ -1,107 +1,120 @@
 <div layout="row">
-  <div flex>
-    <md-card>
-      <img src="assets/images/avatar-10.png" alt="" class="profile-image">
-    </md-card>
-  </div>
-  <div flex="70">
-    <md-card>
-      <md-toolbar class="md-accent">
-        <div class="md-toolbar-tools">
-          <h2>
-          <span>Gabriel Malinosqui</span>
-        </h2>
-          <span flex></span>
-          <md-button class="md-icon-button" ng-click="icon = 'favorite'">
-            <md-icon>{{icon || 'favorite_border'}}</md-icon>
-          </md-button>
-        </div>
-      </md-toolbar>
-      <md-tabs md-dynamic-height md-border-bottom class="md-accent">
-        <md-tab label="Informações">
-          <md-content class="md-padding">
-            <md-list>
-              <md-list-item>
-                <md-icon>person</md-icon>
-                <p>Gabriel Malinosqui</p>
-              </md-list-item>
-              <md-list-item>
-                <md-icon>today</md-icon>
-                <p>20 anos</p>
-              </md-list-item>
-              <md-list-item>
-                <md-icon>face</md-icon>
-                <p>Masculino</p>
-              </md-list-item>
-              <md-list-item>
-                <md-icon>accessibility</md-icon>
-                <p>1,72cm</p>
-              </md-list-item>
-              <md-list-item>
-                <md-icon>restaurant_menu</md-icon>
-                <p>65kg</p>
-              </md-list-item>
-               <md-list-item>
-                <md-icon>access_time</md-icon>
-                <p>32 minutos atrás</p>
-              </md-list-item>
-            </md-list>
-          </md-content>
-        </md-tab>
-        <md-tab label="Histórico de treinos">
-          <md-content class="md-padding">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla venenatis ante augue. Phasellus volutpat neque
-              ac dui mattis vulputate. Etiam consequat aliquam cursus. In sodales pretium ultrices. Maecenas lectus est,
-              sollicitudin consectetur felis nec, feugiat ultricies mi.</p>
-          </md-content>
-        </md-tab>
-        <md-tab label="Avaliaçãoes físicas">
-          <md-content class="md-padding">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla venenatis ante augue. Phasellus volutpat neque
-              ac dui mattis vulputate. Etiam consequat aliquam cursus. In sodales pretium ultrices. Maecenas lectus est,
-              sollicitudin consectetur felis nec, feugiat ultricies mi. Aliquam erat volutpat. Nam placerat, tortor in ultrices
-              porttitor, orci enim rutrum enim, vel tempor sapien arcu a tellus. Vivamus convallis sodales ante varius gravida.
-              Curabitur a purus vel augue ultrices ultricies id a nisl. Nullam malesuada consequat diam, a facilisis tortor
-              volutpat et. Sed urna dolor, aliquet vitae posuere vulputate, euismod ac lorem. Sed felis risus, pulvinar at
-              interdum quis, vehicula sed odio. Phasellus in enim venenatis, iaculis tortor eu, bibendum ante. Donec ac tellus
-              dictum neque volutpat blandit. Praesent efficitur faucibus risus, ac auctor purus porttitor vitae. Phasellus
-              ornare dui nec orci posuere, nec luctus mauris semper.</p>
-            <p>Morbi viverra, ante vel aliquet tincidunt, leo dolor pharetra quam, at semper massa orci nec magna. Donec posuere
-              nec sapien sed laoreet. Etiam cursus nunc in condimentum facilisis. Etiam in tempor tortor. Vivamus faucibus
-              egestas enim, at convallis diam pulvinar vel. Cras ac orci eget nisi maximus cursus. Nunc urna libero, viverra
-              sit amet nisl at, hendrerit tempor turpis. Maecenas facilisis convallis mi vel tempor. Nullam vitae nunc leo.
-              Cras sed nisl consectetur, rhoncus sapien sit amet, tempus sapien.</p>
-            <p>Integer turpis erat, porttitor vitae mi faucibus, laoreet interdum tellus. Curabitur posuere molestie dictum.
-              Morbi eget congue risus, quis rhoncus quam. Suspendisse vitae hendrerit erat, at posuere mi. Cras eu fermentum
-              nunc. Sed id ante eu orci commodo volutpat non ac est. Praesent ligula diam, congue eu enim scelerisque, finibus
-              commodo lectus.</p>
-          </md-content>
-        </md-tab>
-      </md-tabs>
-      <md-fab-toolbar md-direction="left">
-        <md-fab-trigger class="align-with-text">
-          <md-button aria-label="menu" class="md-fab md-accent">
-            <md-icon>add</md-icon>
-          </md-button>
-        </md-fab-trigger>
-        <md-toolbar>
-          <md-fab-actions class="md-toolbar-tools">
-            <md-button aria-label="fisic">
-              Avaliação física
-            </md-button>
-            <md-button aria-label="train">
-              Treino
-            </md-button>
-            <md-button aria-label="agenda">
-              Agenda
-            </md-button>
-            <md-button aria-label="message" ng-click="vm.showMessageDialog($event)">
-              Mensagem
-            </md-button>
-          </md-fab-actions>
-        </md-toolbar>
-      </md-fab-toolbar>
-    </md-card>
+    <div flex>
+        <md-card>
+            <md-toolbar class="md-accent md-tall">
+                <div class="md-toolbar-tools">
+                    <img src="assets/images/avatar-10.png" alt="" class="profile-image" width="50">
+                    <div layout="column" class="m-t-10">
+                        <h2> Gabriel Malinosqui </h2>
+                        <span class="md-caption">4340 pontos</span>
+                    </div>
+                    <span flex></span>
+                    <md-button class="md-icon-button" ng-click="icon = 'favorite'">
+                        <md-icon>{{icon || 'favorite_border'}}</md-icon>
+                    </md-button>
+                    <md-button class="md-icon-button" ng-click="vm.showMessageDialog($event)">
+                        <md-icon>
+                            message
+                        </md-icon>
+                    </md-button>
+                </div>
+            </md-toolbar>
+            <md-tabs md-dynamic-height md-border-bottom class="md-accent">
+                <md-tab label="Informações">
+                    <md-content class="md-padding">
+                        <md-list>
+                            <md-list-item>
+                                <md-icon>person</md-icon>
+                                <p>Gabriel Malinosqui</p>
+                            </md-list-item>
+                            <md-list-item>
+                                <md-icon>today</md-icon>
+                                <p>20 anos</p>
+                            </md-list-item>
+                            <md-list-item>
+                                <md-icon>face</md-icon>
+                                <p>Masculino</p>
+                            </md-list-item>
+                            <md-list-item>
+                                <md-icon>accessibility</md-icon>
+                                <p>1,72cm</p>
+                            </md-list-item>
+                            <md-list-item>
+                                <md-icon>restaurant_menu</md-icon>
+                                <p>65kg</p>
+                            </md-list-item>
+                            <md-list-item>
+                                <md-icon>access_time</md-icon>
+                                <p>32 minutos atrás</p>
+                            </md-list-item>
+                        </md-list>
+                    </md-content>
+                </md-tab>
+                <md-tab label="Histórico de treinos">
+                    <md-content style="height: 600px;" md-theme="altTheme">
+                        <section ng-repeat="execution in vm.weeks track by execution.id">
+                            <md-subheader class="md-accent">{{execution.week}}</md-subheader>
+                            <md-list layout-padding>
+                                <md-list-item class="md-3-line" ng-repeat="t in execution.trainnings track by $index">
+                                    <img ng-src="assets/images/trainning_thumb2.jpg" class="md-avatar" alt="Treino">
+                                    <div class="md-list-item-text">
+                                        <h3>{{t.day}} - {{t.name}}</h3>
+                                        <h4>{{t.description}}</h4>
+                                        <p>
+                                            Comentários: {{t.comments}}
+                                        </p>
+                                    </div>
+                                </md-list-item>
+                            </md-list>
+                        </section>
+                    </md-content>
+                </md-tab>
+                <md-tab label="Avaliaçãoes físicas">
+                    <md-content class="md-padding">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla venenatis ante augue. Phasellus volutpat
+                            neque ac dui mattis vulputate. Etiam consequat aliquam cursus. In sodales pretium ultrices. Maecenas
+                            lectus est, sollicitudin consectetur felis nec, feugiat ultricies mi. Aliquam erat volutpat.
+                            Nam placerat, tortor in ultrices porttitor, orci enim rutrum enim, vel tempor sapien arcu a tellus.
+                            Vivamus convallis sodales ante varius gravida. Curabitur a purus vel augue ultrices ultricies
+                            id a nisl. Nullam malesuada consequat diam, a facilisis tortor volutpat et. Sed urna dolor, aliquet
+                            vitae posuere vulputate, euismod ac lorem. Sed felis risus, pulvinar at interdum quis, vehicula
+                            sed odio. Phasellus in enim venenatis, iaculis tortor eu, bibendum ante. Donec ac tellus dictum
+                            neque volutpat blandit. Praesent efficitur faucibus risus, ac auctor purus porttitor vitae. Phasellus
+                            ornare dui nec orci posuere, nec luctus mauris semper.</p>
+                        <p>Morbi viverra, ante vel aliquet tincidunt, leo dolor pharetra quam, at semper massa orci nec magna.
+                            Donec posuere nec sapien sed laoreet. Etiam cursus nunc in condimentum facilisis. Etiam in tempor
+                            tortor. Vivamus faucibus egestas enim, at convallis diam pulvinar vel. Cras ac orci eget nisi
+                            maximus cursus. Nunc urna libero, viverra sit amet nisl at, hendrerit tempor turpis. Maecenas
+                            facilisis convallis mi vel tempor. Nullam vitae nunc leo. Cras sed nisl consectetur, rhoncus
+                            sapien sit amet, tempus sapien.</p>
+                        <p>Integer turpis erat, porttitor vitae mi faucibus, laoreet interdum tellus. Curabitur posuere molestie
+                            dictum. Morbi eget congue risus, quis rhoncus quam. Suspendisse vitae hendrerit erat, at posuere
+                            mi. Cras eu fermentum nunc. Sed id ante eu orci commodo volutpat non ac est. Praesent ligula
+                            diam, congue eu enim scelerisque, finibus commodo lectus.</p>
+                    </md-content>
+                </md-tab>
+            </md-tabs>
+            <md-fab-toolbar md-direction="left">
+                <md-fab-trigger class="align-with-text">
+                    <md-button aria-label="menu" class="md-fab md-primary">
+                        <md-icon>add</md-icon>
+                    </md-button>
+                </md-fab-trigger>
+                <md-toolbar>
+                    <md-fab-actions class="md-toolbar-tools">
+                        <md-button aria-label="fisic">
+                            Avaliação física
+                        </md-button>
+                        <md-button aria-label="train">
+                            Treino
+                        </md-button>
+                        <md-button aria-label="agenda">
+                            Agenda
+                        </md-button>
+                    </md-fab-actions>
+                </md-toolbar>
+            </md-fab-toolbar>
+        </md-card>
 
-  </div>
+    </div>
 </div>

@@ -20,5 +20,17 @@
 }
 
 .profile-image{
-    max-height: 300px;
+    margin-top: 50px;
+    width: 100px;
+}
+
+.white{
+    background-color: #fff;
+}
+
+.no-padding {
+    padding: 0px;
+}
+.m-t-10{
+    margin-top: 10px;
 }
