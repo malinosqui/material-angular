@@ -4,19 +4,42 @@
             <md-toolbar class="md-accent md-tall">
                 <div class="md-toolbar-tools">
                     <img src="assets/images/avatar-10.png" alt="" class="profile-image" width="50">
-                    <div layout="column" class="m-t-10">
+                    <div layout="column" class="m-t-20">
                         <h2> Gabriel Malinosqui </h2>
-                        <span class="md-caption">4340 pontos</span>
+                        <span class="md-caption-primary">4340 pontos</span>
                     </div>
                     <span flex></span>
-                    <md-button class="md-icon-button" ng-click="icon = 'favorite'">
-                        <md-icon>{{icon || 'favorite_border'}}</md-icon>
+                    <md-button class="md-icon-button" ng-click="vm.showMessageDialog($event)">
+                        <md-tooltip md-direction="bottom">
+                            Treinos
+                        </md-tooltip>
+                        <md-icon> fitness_center </md-icon>
                     </md-button>
                     <md-button class="md-icon-button" ng-click="vm.showMessageDialog($event)">
-                        <md-icon>
-                            message
-                        </md-icon>
+                        <md-tooltip md-direction="bottom">
+                            Avaliação física
+                        </md-tooltip>
+                        <md-icon> accessibility </md-icon>
                     </md-button>
+                    <md-button class="md-icon-button" ng-click="vm.showMessageDialog($event)">
+                        <md-tooltip md-direction="bottom">
+                            Agenda
+                        </md-tooltip>
+                        <md-icon> today </md-icon>
+                    </md-button>
+                    <md-button class="md-icon-button" ng-click="vm.showMessageDialog($event)">
+                        <md-tooltip md-direction="bottom">
+                            Enviar mensagem
+                        </md-tooltip>
+                        <md-icon> message </md-icon>
+                    </md-button>
+                    <md-button class="md-icon-button" ng-click="icon = 'favorite'">
+                        <md-tooltip md-direction="bottom">
+                            Favoritar
+                        </md-tooltip>
+                        <md-icon>{{icon || 'favorite_border'}}</md-icon>
+                    </md-button>
+
                 </div>
             </md-toolbar>
             <md-tabs md-dynamic-height md-border-bottom class="md-accent">
@@ -43,19 +66,16 @@
                                 <md-icon>restaurant_menu</md-icon>
                                 <p>65kg</p>
                             </md-list-item>
-                            <md-list-item>
-                                <md-icon>access_time</md-icon>
-                                <p>32 minutos atrás</p>
-                            </md-list-item>
                         </md-list>
                     </md-content>
                 </md-tab>
                 <md-tab label="Histórico de treinos">
-                    <md-content style="height: 600px;" md-theme="altTheme">
+                    <md-content style="height: 340px;">
                         <section ng-repeat="execution in vm.weeks track by execution.id">
-                            <md-subheader class="md-accent">{{execution.week}}</md-subheader>
+                            <md-subheader class="md-accent">
+                                <md-icon>timeline</md-icon> {{execution.week}}</md-subheader>
                             <md-list layout-padding>
-                                <md-list-item class="md-3-line" ng-repeat="t in execution.trainnings track by $index">
+                                <md-list-item class="md-3-line" ng-repeat="t in execution.trainnings track by $index" ng-click="toast()">
                                     <img ng-src="assets/images/trainning_thumb2.jpg" class="md-avatar" alt="Treino">
                                     <div class="md-list-item-text">
                                         <h3>{{t.day}} - {{t.name}}</h3>
@@ -69,32 +89,21 @@
                         </section>
                     </md-content>
                 </md-tab>
-                <md-tab label="Avaliaçãoes físicas">
-                    <md-content class="md-padding">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla venenatis ante augue. Phasellus volutpat
-                            neque ac dui mattis vulputate. Etiam consequat aliquam cursus. In sodales pretium ultrices. Maecenas
-                            lectus est, sollicitudin consectetur felis nec, feugiat ultricies mi. Aliquam erat volutpat.
-                            Nam placerat, tortor in ultrices porttitor, orci enim rutrum enim, vel tempor sapien arcu a tellus.
-                            Vivamus convallis sodales ante varius gravida. Curabitur a purus vel augue ultrices ultricies
-                            id a nisl. Nullam malesuada consequat diam, a facilisis tortor volutpat et. Sed urna dolor, aliquet
-                            vitae posuere vulputate, euismod ac lorem. Sed felis risus, pulvinar at interdum quis, vehicula
-                            sed odio. Phasellus in enim venenatis, iaculis tortor eu, bibendum ante. Donec ac tellus dictum
-                            neque volutpat blandit. Praesent efficitur faucibus risus, ac auctor purus porttitor vitae. Phasellus
-                            ornare dui nec orci posuere, nec luctus mauris semper.</p>
-                        <p>Morbi viverra, ante vel aliquet tincidunt, leo dolor pharetra quam, at semper massa orci nec magna.
-                            Donec posuere nec sapien sed laoreet. Etiam cursus nunc in condimentum facilisis. Etiam in tempor
-                            tortor. Vivamus faucibus egestas enim, at convallis diam pulvinar vel. Cras ac orci eget nisi
-                            maximus cursus. Nunc urna libero, viverra sit amet nisl at, hendrerit tempor turpis. Maecenas
-                            facilisis convallis mi vel tempor. Nullam vitae nunc leo. Cras sed nisl consectetur, rhoncus
-                            sapien sit amet, tempus sapien.</p>
-                        <p>Integer turpis erat, porttitor vitae mi faucibus, laoreet interdum tellus. Curabitur posuere molestie
-                            dictum. Morbi eget congue risus, quis rhoncus quam. Suspendisse vitae hendrerit erat, at posuere
-                            mi. Cras eu fermentum nunc. Sed id ante eu orci commodo volutpat non ac est. Praesent ligula
-                            diam, congue eu enim scelerisque, finibus commodo lectus.</p>
+                <md-tab label="Avaliações físicas">
+                    <md-content style="height: 300px;" class="md-padding">
+                        <md-grid-list md-cols-sm="1" md-cols-md="2" md-cols-gt-md="6" md-row-height-gt-md="1:1" md-row-height="4:3" md-gutter="8px"
+                        md-gutter-gt-sm="4px">
+
+                            <md-grid-tile ng-repeat="avaliation in vm.avaliations" md-rowspan="{{avaliation.span.row}}" md-colspan="{{avaliation.span.col}}"
+                            md-colspan-sm="1" ng-class="avaliation.background" ng-click="vm.foo()">
+                                <md-grid-tile-footer>
+                                    <h3> <a href="#" class="figcaption-a">{{avaliation.title}}</a></h3></md-grid-tile-footer>
+                            </md-grid-tile>
+                        </md-grid-list>
                     </md-content>
                 </md-tab>
             </md-tabs>
-            <md-fab-toolbar md-direction="left">
+            <!--<md-fab-toolbar md-direction="left">
                 <md-fab-trigger class="align-with-text">
                     <md-button aria-label="menu" class="md-fab md-primary">
                         <md-icon>add</md-icon>
@@ -113,7 +122,7 @@
                         </md-button>
                     </md-fab-actions>
                 </md-toolbar>
-            </md-fab-toolbar>
+            </md-fab-toolbar>-->
         </md-card>
 
     </div>

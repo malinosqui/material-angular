@@ -1,7 +1,20 @@
 <md-list class="md-whiteframe-1dp white">
     <div class="md-actions" layout layout-align="end center">
-        <md-subheader class="md-no-sticky">Lista de alunos</md-subheader>
+        <md-subheader class="md-no-sticky">
+            <span ng-show="!showFilter">
+                Lista de alunos
+             </span>
+            <div ng-show="showFilter">
+                <md-input-container class="no-margin">
+                    <md-icon>search</md-icon>
+                    <input ng-model="filter" type="text">
+                </md-input-container>
+            </div>
+        </md-subheader>
         <span flex></span>
+        <md-button class="md-icon-button" ng-click="showFilter = !showFilter">
+            <md-icon>filter_list</md-icon>
+        </md-button>
         <md-menu md-position-mode="target-right target">
             <md-button class="md-icon-button" aria-label="{{list.menu.name}}" ng-click="$mdOpenMenu($event)">
                 <md-icon>settings</md-icon>
@@ -19,7 +32,7 @@
         </md-menu>
     </div>
     <md-divider></md-divider>
-    <md-list-item class="md-2-line" ng-repeat="item in vm.members" ng-click="vm.navigateTo('members/' + item.id)">
+    <md-list-item class="md-2-line" ng-repeat="item in vm.members | filter: filter" ng-click="vm.navigateTo('members/' + item.id)">
         <div class="md-list-item-text" layout="column">
             <h3 class="md-body-2">{{item.name}}</h3>
             <p class="md-caption">{{item.age}} anos</p>

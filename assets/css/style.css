@@ -12,7 +12,7 @@
 }
 
 .logo img {
-    height: 40px;
+    height: 3.5em;
     width: auto;
     display: block;
     transform-origin: 50% 0;
@@ -30,7 +30,71 @@
 
 .no-padding {
     padding: 0px;
+    margin-bottom: -4px;
+}
+
+.no-margin {
+    margin: 0;
 }
 .m-t-10{
     margin-top: 10px;
 }
+
+.m-t-20{
+    margin-top: 20px;
+}
+
+.md-tall-custom {
+    height: 8em;
+    min-height: 128px;
+    max-height: 8em;
+}
+
+.md-caption-primary{
+    font-size: 15px;
+}
+
+.fit_1 {
+    background-image: url("/assets/images/fit_1.jpg");
+    background-size: cover;
+    -webkit-transition: all 1s linear;
+}
+
+.fit_2 {
+    background-image: url("/assets/images/fit_2.jpg");
+    background-size: cover;
+}
+
+.fit_3 {
+    background-image: url("/assets/images/fit_3.jpg");
+    background-size: cover;
+}
+
+.figcaption-a {
+    text-decoration: none;
+    color: white !important;
+}
+
+md-grid-list md-grid-tile md-grid-tile-header, md-grid-list md-grid-tile md-grid-tile-footer {
+    background: rgba(0, 0, 0, 0.48);
+}
+
+/*.fit_1:hover, .fit_2:hover, .fit_3:hover{ 
+   -webkit-filter: blur(0.8px);
+   
+}
+.fit_1 p a md-icon, .fit_2 p aZ md-icon, .fit_3 p a md-icon {
+    font-size: 45px;
+    color: #fff;
+    z-index: 999;
+}
+
+.fit_1 p, .fit_2 p, .fit_3 p {
+     display: none;
+     color: #fff; 
+     font-size: 25px;
+}*/
+/*.fit_1:hover p, .fit_2:hover p, .fit_3:hover { 
+display: block;
+   
+}*/
