@@ -73,7 +73,7 @@
                     <md-content style="height: 340px;">
                         <section ng-repeat="execution in vm.weeks track by execution.id">
                             <md-subheader class="md-accent">
-                                <md-icon>timeline</md-icon> {{execution.week}}</md-subheader>
+                                <md-icon class="md-accent">today</md-icon> {{execution.week}}</md-subheader>
                             <md-list layout-padding>
                                 <md-list-item class="md-3-line" ng-repeat="t in execution.trainnings track by $index" ng-click="toast()">
                                     <img ng-src="assets/images/trainning_thumb2.jpg" class="md-avatar" alt="Treino">

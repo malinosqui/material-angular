@@ -55,6 +55,7 @@
                         <span flex></span>
                         <md-icon class="md-icon-button">{{item.icon}}</md-icon>
                     </md-list-item>
+                </md-list>
             </md-content>
         </md-sidenav>
         <section layout="column" role="main" flex>
@@ -65,39 +66,28 @@
                     </md-button>
                     <h4 class="md-title" style="color: rgb(198,40,40);">99fit</h4>
                     <span flex></span>
-                    <md-button class="md-icon-button" ng-repeat="button in data.toolbar.buttons" aria-label={{button.name}} ng-click="toast(button.link)">
-                        <md-icon>{{button.icon}}</md-icon>
+                  
+                    <md-button class="md-icon-button"  >
+                        <md-icon style="color: rgba(0,0,0,0.54) !important;">notifications</md-icon>
                     </md-button>
-                    <md-menu md-position-mode="target-right target" ng-repeat="menu in data.toolbar.menus">
-                        <md-button class="md-icon-button" aria-label="{{menu.name}}" ng-click="$mdOpenMenu($event)">
-                            <md-icon>{{menu.icon}}</md-icon>
-                        </md-button>
-                        <md-menu-content width={{menu.width}}>
-                            <md-subheader>{{menu.name}}</md-subheader>
-                            <md-menu-item ng-repeat="action in menu.actions">
-                                <md-button layout-fill md-ink-ripple ng-click="toast(action.message)">
-                                    <md-icon md-class="{{action.error ? 'md-warn' : 'md-primary'}}" md-menu-align-target>{{action.completed ? 'done' : 'hourglass_empty'}}</md-icon>
-                                    {{action.name}}
-                                </md-button>
-                            </md-menu-item>
-                        </md-menu-content>
-                    </md-menu>
+
                 </div>
             </md-toolbar>
             <md-content class="inner-body fade" ng-view md-scroll-y flex layout-padding></md-content>
+        </section>
 
 
 
-            <script src="bower_components/angular/angular.js"></script>
-            <script src="bower_components/angular-animate/angular-animate.js"></script>
-            <script src="bower_components/angular-aria/angular-aria.js"></script>
-            <script src="bower_components/angular-route/angular-route.js"></script>
-            <script src="bower_components/angular-material/angular-material.js"></script>
-            <script src="app/app.js"></script>
-            <script src="app/routes.js"></script>
-            <script src="app/controllers/homeController.js"></script>
-            <script src="app/controllers/sideNavController.js"></script>
-            <script src="app/controllers/memberController.js"></script>
+        <script src="bower_components/angular/angular.js"></script>
+        <script src="bower_components/angular-animate/angular-animate.js"></script>
+        <script src="bower_components/angular-aria/angular-aria.js"></script>
+        <script src="bower_components/angular-route/angular-route.js"></script>
+        <script src="bower_components/angular-material/angular-material.js"></script>
+        <script src="app/app.js"></script>
+        <script src="app/routes.js"></script>
+        <script src="app/controllers/homeController.js"></script>
+        <script src="app/controllers/sideNavController.js"></script>
+        <script src="app/controllers/memberController.js"></script>
 </body>
 
 </html>

@@ -1,18 +1,27 @@
+<style>
+    md-input-container .md-errors-spacer{
+        display: none;
+    }
+</style>
+
 <md-list class="md-whiteframe-1dp white">
     <div class="md-actions" layout layout-align="end center">
-        <md-subheader class="md-no-sticky">
+        <md-subheader class="md-no-sticky" style="width: 75%;" >
             <span ng-show="!showFilter">
                 Lista de alunos
              </span>
-            <div ng-show="showFilter">
-                <md-input-container class="no-margin">
-                    <md-icon>search</md-icon>
-                    <input ng-model="filter" type="text">
-                </md-input-container>
-            </div>
+            <md-content ng-show="showFilter" >
+                <form>
+                    <md-input-container class="no-margin md-block" md-no-float>
+                        <md-icon>search</md-icon>
+                        <input ng-model="filter" type="text" placeholder="Pesquisar em alunos">
+                    </md-input-container>
+                </form>
+            </md-content>
         </md-subheader>
         <span flex></span>
         <md-button class="md-icon-button" ng-click="showFilter = !showFilter">
+            <md-tooltip md-direction="left">Filtro</md-tooltip>
             <md-icon>filter_list</md-icon>
         </md-button>
         <md-menu md-position-mode="target-right target">
