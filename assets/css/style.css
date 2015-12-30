@@ -19,9 +19,26 @@
     transform: scale(1.2);
 }
 
-.profile-image{
-    margin-top: 50px;
+.profile-container {
     width: 100px;
+    height: 100px;
+    overflow: hidden;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    margin-top: 70px;
+    margin-right: 10px;
+    background-size: cover;
+    border-radius: 50%;
+}
+
+.profile-container-thumb {
+    width: 45px;
+    height: 45px;
+    overflow: hidden;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: cover;
+    border-radius: 50%;
 }
 
 .white{
@@ -115,4 +132,61 @@ display: block;
 }
 .fade.ng-leave-active {
     opacity: 0;
+}
+.step{
+    padding: 10px;
+}
+
+.step > md-content > .circle{
+    width: 40px;
+    height: 40px;
+    background-color: #BDBDBD;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 1.3em;
+    line-height: 40px;
+    text-align: center;
+    float:left;
+}
+
+.step > md-content > .circle.active{
+    background-color: #2196F3;
+}
+
+.step-title {
+    line-height: 40px;
+    margin-left: 10px;
+   color: #bdbdbd;
+}
+.step-title.active {
+    color: black;
+   font-weight: bold;
+}
+.step-subtitle {
+    color: #bdbdbd;
+    display: block;
+    margin-left: 48px;
+    font-size: 0.85em;
+    margin-top: -5px;
+}
+
+ .line {
+    border-left: 1px solid #BDBDBD;
+    margin-left: 0.3em;
+}
+
+.step-content {
+    height: 15px;
+}
+
+.step-content.active {
+    height: auto;
+}
+
+.step:last-child > md-content > .layout-row > .line {
+    display: none;
+}
+
+.step > md-content {
+    cursor: pointer;
 }

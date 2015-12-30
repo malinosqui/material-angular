@@ -17,7 +17,8 @@
                     <img src="assets/images/logo.png" alt="">
                 </div>
                 <div class="md-toolbar-tools" layout layout-padding>
-                    <img src="assets/images/avatar-08.png" alt="Gabriel Malinosqui" class="md-avatar" width="65">
+                    <div class="profile-container-thumb" style="background-image: url('assets/images/me.jpg');"></div>
+                    <!--<img src="" alt="Gabriel Malinosqui" class="md-avatar" width="75">-->
                     <div layout="column" layout-padding>
                         <span class="md-body-2 no-padding">Gabriel Malinosqui</span>
                         <span class="md-caption no-padding">Elevenfit</span>
@@ -49,12 +50,24 @@
                 </div>
             </md-toolbar>
             <md-content role="navigation">
-                <md-list ng-repeat="item in vm.menus">
-                    <md-list-item ng-click="vm.navigateTo(item.route)">
+                <md-list >
+                    <md-list-item ng-click="vm.navigateTo(item.route)" ng-repeat="item in vm.menus">
                         <p class="md-accent">{{item.name}}</p>
                         <span flex></span>
                         <md-icon class="md-icon-button">{{item.icon}}</md-icon>
                     </md-list-item>
+                    <md-divider>
+                        <md-list-item ng-click="vm.navigateTo('/settings')">
+                            <p class="md-accent">Configurações</p>
+                            <span flex></span>
+                            <md-icon class="md-icon-button">settings</md-icon>
+                        </md-list-item>
+                        <md-list-item ng-click="vm.navigateTo('/help')">
+                            <p class="md-accent">Ajuda</p>
+                            <span flex></span>
+                            <md-icon class="md-icon-button">help</md-icon>
+                        </md-list-item>
+                    </md-divider>
                 </md-list>
             </md-content>
         </md-sidenav>
@@ -66,8 +79,8 @@
                     </md-button>
                     <h4 class="md-title" style="color: rgb(198,40,40);">99fit</h4>
                     <span flex></span>
-                  
-                    <md-button class="md-icon-button"  >
+
+                    <md-button class="md-icon-button">
                         <md-icon style="color: rgba(0,0,0,0.54) !important;">notifications</md-icon>
                     </md-button>
 
@@ -88,6 +101,7 @@
         <script src="app/controllers/homeController.js"></script>
         <script src="app/controllers/sideNavController.js"></script>
         <script src="app/controllers/memberController.js"></script>
+        <script src="app/controllers/trainningController.js"></script>
 </body>
 
 </html>

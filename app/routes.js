@@ -23,6 +23,11 @@
 				controllerAs: 'vm', 
 				templateUrl: 'app/views/memberDetail.html'
 			})
+            .when('/trainnings', {
+                controller: 'TrainningController',
+                controllerAs: 'vm', 
+                templateUrl: 'app/views/trainnings.html'
+            })
 			.otherwise({
 				controller: 'HomeController', 
 				controllerAs: 'vm', 

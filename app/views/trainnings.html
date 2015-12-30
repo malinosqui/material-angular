@@ -1,0 +1,77 @@
+<md-card>
+    <form name="userForm">
+        <div id="section1" class="step">
+            <md-content ng-click="vm.setActive(1)">
+                <div class="circle" ng-class="{active: vm.stepIsActive(1)}">1</div>
+                <span class="step-title" ng-class="{active: vm.stepIsActive(1)}">Informações do treino</span>
+            </md-content>
+            <md-content layout-padding>
+                <div layout="row">
+                    <div class="line" flex="5"></div>
+                    <div flex="95" class="step-content" ng-class="{active: vm.stepIsActive(1)}" ng-if="vm.stepIsActive(1)">
+                        <div layout-gt-xs="row" >
+                            <md-input-container class="md-block" flex-gt-xs>
+                                <label>Nome</label>
+                                <input ng-model="trainning.name">
+                            </md-input-container>
+                            <md-input-container class="md-block" flex-gt-xs="30">
+                                <label>Duração (minutos)</label>
+                                <input ng-model="trainning.duration" step="0">
+                            </md-input-container>
+                        </div>
+                        <div layout-gt-sm="row">
+                            <md-input-container class="md-block" flex-gt-sm>
+                                <label>Descrição</label>
+                                <input ng-model="trainning.description">
+                            </md-input-container>
+                        </div>
+                        <div layout-gt-sm="row">
+                            <md-input-container class="md-block" flex-gt-sm>
+                                <label>Dificuldade</label>
+                                <md-select ng-model="trainning.level">
+                                    <md-option value="Fácil">Fácil</md-option>
+                                    <md-option value="Intermediário">Intermediário</md-option>
+                                    <md-option value="Difícil">Difícil</md-option>
+                                    <md-option value="Insano">Insano</md-option>
+                                </md-select>
+                            </md-input-container>
+                        </div>
+                    </div>
+                </div>
+            </md-content>
+        </div>
+        <div id="section2" class="step">
+            <md-content ng-click="vm.setActive(2)">
+                <div class="circle" ng-class="{active: vm.stepIsActive(2)}">2</div>
+                <span class="step-title" ng-class="{active: vm.stepIsActive(2)}">Exercícios</span>
+            </md-content>
+            <md-content layout-padding>
+                <div layout="row">
+                    <div class="line" flex="5"></div>
+                    <div flex="95" class="step-content" ng-class="{active: vm.stepIsActive(2)}">
+                        <div layout-gt-xs="row" ng-show="vm.stepIsActive(2)">
+                            Olá
+                        </div>
+                    </div>
+                </div>
+            </md-content>
+        </div>
+         <div id="section3" class="step">
+            <md-content ng-click="vm.setActive(3)">
+                <div class="circle" ng-class="{active: vm.stepIsActive(3)}">3</div>
+                <span class="step-title" ng-class="{active: vm.stepIsActive(3)}">Alunos</span>
+                <span class="step-subtitle" ng-class="{active: vm.stepIsActive(3)}">Adicione o treino para os alunos</span>
+            </md-content>
+            <md-content layout-padding>
+                <div layout="row">
+                    <div class="line" flex="5"></div>
+                    <div flex="95" class="step-content" ng-class="{active: vm.stepIsActive(1)}">
+                        <div layout-gt-xs="row"  ng-show="vm.stepIsActive(3)">
+                            Olá
+                        </div>
+                    </div>
+                </div>
+            </md-content>
+        </div>
+    </form>
+</md-card>

@@ -1,23 +1,23 @@
 (function () {
-	'use strict';
+    'use strict';
 
-	angular
-		.module('appMain')
-		.controller('SideNavController', SideNavController);
+    angular
+        .module('appMain')
+        .controller('SideNavController', SideNavController);
 
-	SideNavController.$inject = ['$mdSidenav', '$location'];
+    SideNavController.$inject = ['$mdSidenav', '$location'];
 
-	function SideNavController($mdSidenav, $location) {
-		var vm = this;
+    function SideNavController($mdSidenav, $location) {
+        var vm = this;
 
-		vm.menus = [{ icon: 'dashboard', name: 'Painel', route: 'dashboard' }, { icon: 'supervisor_account', name: 'Alunos', route: 'members' }, { icon: 'help', name: 'Ajuda', route: 'help' }];
+        vm.menus = [{ icon: 'dashboard', name: 'Painel', route: 'dashboard' }, { icon: 'supervisor_account', name: 'Alunos', route: 'members' }, { icon: 'fitness_center', name: 'Treinos', route: 'trainnings' }];
 
-		vm.toggleSidenav = function (menu) {
-			$mdSidenav(menu).toggle();
-		};
+        vm.toggleSidenav = function (menu) {
+            $mdSidenav(menu).toggle();
+        };
 
-		vm.navigateTo = function (path) {
-			$location.path(path);
-		}
-	}
+        vm.navigateTo = function (path) {
+            $location.path(path);
+        }
+    }
 })();

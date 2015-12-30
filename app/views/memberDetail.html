@@ -2,8 +2,8 @@
     <div flex>
         <md-card>
             <md-toolbar class="md-accent md-tall">
-                <div class="md-toolbar-tools">
-                    <img src="assets/images/avatar-10.png" alt="" class="profile-image" width="50">
+                <div class="md-toolbar-tools" flex>
+                    <div class="profile-container" style="background-image: url('/assets/images/fit_1.jpg');"> </div>
                     <div layout="column" class="m-t-20">
                         <h2> Gabriel Malinosqui </h2>
                         <span class="md-caption-primary">4340 pontos</span>
@@ -11,19 +11,19 @@
                     <span flex></span>
                     <md-button class="md-icon-button" ng-click="vm.showMessageDialog($event)">
                         <md-tooltip md-direction="bottom">
-                            Treinos
+                            Cadastrar treino
                         </md-tooltip>
                         <md-icon> fitness_center </md-icon>
                     </md-button>
                     <md-button class="md-icon-button" ng-click="vm.showMessageDialog($event)">
                         <md-tooltip md-direction="bottom">
-                            Avaliação física
+                            Nova avaliação física
                         </md-tooltip>
                         <md-icon> accessibility </md-icon>
                     </md-button>
                     <md-button class="md-icon-button" ng-click="vm.showMessageDialog($event)">
                         <md-tooltip md-direction="bottom">
-                            Agenda
+                            Agenda de treinos
                         </md-tooltip>
                         <md-icon> today </md-icon>
                     </md-button>
@@ -69,6 +69,8 @@
                         </md-list>
                     </md-content>
                 </md-tab>
+                 <md-tab label="Treinos">
+                </md-tab>
                 <md-tab label="Histórico de treinos">
                     <md-content style="height: 340px;">
                         <section ng-repeat="execution in vm.weeks track by execution.id">
@@ -97,7 +99,7 @@
                             <md-grid-tile ng-repeat="avaliation in vm.avaliations" md-rowspan="{{avaliation.span.row}}" md-colspan="{{avaliation.span.col}}"
                             md-colspan-sm="1" ng-class="avaliation.background" ng-click="vm.foo()">
                                 <md-grid-tile-footer>
-                                    <h3> <a href="#" class="figcaption-a">{{avaliation.title}}</a></h3></md-grid-tile-footer>
+                                    <h3> <a ng-href="#/members/avaliations/{{avaliation.id}}" class="figcaption-a">{{avaliation.title}}</a></h3></md-grid-tile-footer>
                             </md-grid-tile>
                         </md-grid-list>
                     </md-content>
