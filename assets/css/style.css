@@ -133,24 +133,73 @@ display: block;
 .fade.ng-leave-active {
     opacity: 0;
 }
+
+.ng-hide-add {
+    animation:1s hide;
+}
+
+@keyframes hide {
+  0% {
+    opacity:1;
+  }
+  100% { 
+    opacity:0;
+  }
+}
+
+@-webkit-keyframes hide {
+  0% {
+    opacity:1;
+  }
+  100% { 
+    opacity:0;
+  }
+}
+
+.ng-hide-remove {
+    animation:1s show;
+}
+
+@keyframes show {
+  0% {
+    opacity:0;
+  }
+  100% { 
+    opacity:1;
+  }
+}
+
+@-webkit-keyframes show {
+  0% {
+    opacity:0;
+  }
+  100% { 
+    opacity:1;
+  }
+}
+
 .step{
     padding: 10px;
 }
 
+.step > md-content:focus {
+    outline: 0;
+}
+
 .step > md-content > .circle{
-    width: 40px;
-    height: 40px;
+    width: 35px;
+    height: 35px;
     background-color: #BDBDBD;
     border-radius: 50%;
     color: #fff;
-    font-size: 1.3em;
-    line-height: 40px;
+    font-size: 1em;
+    line-height: 35px;
     text-align: center;
     float:left;
 }
 
 .step > md-content > .circle.active{
-    background-color: #2196F3;
+    background-color: #607D8B;
 }
 
 .step-title {
@@ -183,10 +232,21 @@ display: block;
     height: auto;
 }
 
-.step:last-child > md-content > .layout-row > .line {
-    display: none;
-}
+
 
 .step > md-content {
     cursor: pointer;
 }
+
+.step:not(:first-child){
+    margin-top: -20px;
+}
+
+.md-contact-chips .md-chips .md-chip .md-contact-avatar img {
+    height: 32px;
+    border-radius: 16px;
+    width: auto;
+}
+
+  .chipsdemoContactChips div div input {
+    min-width: 400px; }

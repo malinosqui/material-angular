@@ -1,7 +1,7 @@
 (function (angular) {
 	'use strict';
 
-	angular.module('appMain', ['ngRoute', 'ngMaterial'])
+	angular.module('appMain', ['ngRoute', 'ngMaterial', 'ngAnimate'])
 		.config(function ($mdThemingProvider) {
 			$mdThemingProvider.theme('default')
 				.primaryPalette('blue-grey')

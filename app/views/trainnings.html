@@ -8,33 +8,39 @@
             <md-content layout-padding>
                 <div layout="row">
                     <div class="line" flex="5"></div>
-                    <div flex="95" class="step-content" ng-class="{active: vm.stepIsActive(1)}" ng-if="vm.stepIsActive(1)">
-                        <div layout-gt-xs="row" >
-                            <md-input-container class="md-block" flex-gt-xs>
-                                <label>Nome</label>
-                                <input ng-model="trainning.name">
-                            </md-input-container>
-                            <md-input-container class="md-block" flex-gt-xs="30">
-                                <label>Duração (minutos)</label>
-                                <input ng-model="trainning.duration" step="0">
-                            </md-input-container>
-                        </div>
-                        <div layout-gt-sm="row">
-                            <md-input-container class="md-block" flex-gt-sm>
-                                <label>Descrição</label>
-                                <input ng-model="trainning.description">
-                            </md-input-container>
-                        </div>
-                        <div layout-gt-sm="row">
-                            <md-input-container class="md-block" flex-gt-sm>
-                                <label>Dificuldade</label>
-                                <md-select ng-model="trainning.level">
-                                    <md-option value="Fácil">Fácil</md-option>
-                                    <md-option value="Intermediário">Intermediário</md-option>
-                                    <md-option value="Difícil">Difícil</md-option>
-                                    <md-option value="Insano">Insano</md-option>
-                                </md-select>
-                            </md-input-container>
+                    <div flex="95" class="step-content" ng-class="{active: vm.stepIsActive(1)}">
+                        <div ng-show="vm.stepIsActive(1)" class="step-fade">
+                            <div layout-gt-xs="row">
+                                <md-input-container class="md-block" flex-gt-xs>
+                                    <label>Nome</label>
+                                    <input ng-model="trainning.name">
+                                </md-input-container>
+                                <md-input-container class="md-block" flex-gt-xs="30">
+                                    <label>Duração (minutos)</label>
+                                    <input ng-model="trainning.duration" type="number" step="0">
+                                </md-input-container>
+                            </div>
+                            <div layout-gt-sm="row">
+                                <md-input-container class="md-block" flex-gt-sm>
+                                    <label>Descrição</label>
+                                    <input ng-model="trainning.description">
+                                </md-input-container>
+                            </div>
+                            <div layout-gt-sm="row">
+                                <md-input-container class="md-block" flex-gt-sm>
+                                    <label>Dificuldade</label>
+                                    <md-select ng-model="trainning.level">
+                                        <md-option value="Fácil">Fácil</md-option>
+                                        <md-option value="Intermediário">Intermediário</md-option>
+                                        <md-option value="Difícil">Difícil</md-option>
+                                        <md-option value="Insano">Insano</md-option>
+                                    </md-select>
+                                </md-input-container>
+                            </div>
+                            <div>
+                                <md-button class="md-raised md-primary" ng-click="vm.setActive(2)">Continuar</md-button>
+                                <md-button class="md-accent" ng-click="vm.cancel()">Cancelar</md-button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -49,14 +55,14 @@
                 <div layout="row">
                     <div class="line" flex="5"></div>
                     <div flex="95" class="step-content" ng-class="{active: vm.stepIsActive(2)}">
-                        <div layout-gt-xs="row" ng-show="vm.stepIsActive(2)">
-                            Olá
+                        <div layout-gt-xs="row" ng-show="vm.stepIsActive(2)" class="step-fade">
+
                         </div>
                     </div>
                 </div>
             </md-content>
         </div>
-         <div id="section3" class="step">
+        <div id="section3" class="step">
             <md-content ng-click="vm.setActive(3)">
                 <div class="circle" ng-class="{active: vm.stepIsActive(3)}">3</div>
                 <span class="step-title" ng-class="{active: vm.stepIsActive(3)}">Alunos</span>
@@ -65,9 +71,12 @@
             <md-content layout-padding>
                 <div layout="row">
                     <div class="line" flex="5"></div>
-                    <div flex="95" class="step-content" ng-class="{active: vm.stepIsActive(1)}">
-                        <div layout-gt-xs="row"  ng-show="vm.stepIsActive(3)">
-                            Olá
+                    <div flex="95" class="step-content chipsdemoContactChips" ng-class="{active: vm.stepIsActive(3)}">
+                        <div layout="column" ng-show="vm.stepIsActive(3)" class="step-fade">
+                            <md-contact-chips ng-model="vm.contacts" md-contacts="vm.querySearch($query)" md-contact-name="name" md-contact-image="image"
+                            md-contact-email="email" md-require-match="true" md-highlight-flags="i" filter-selected="true"
+                            placeholder="Alunos">
+                            </md-contact-chips>
                         </div>
                     </div>
                 </div>

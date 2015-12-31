@@ -27,6 +27,11 @@
                 controller: 'TrainningController',
                 controllerAs: 'vm', 
                 templateUrl: 'app/views/trainnings.html'
+            }).
+            when('/login', {
+                controller:'LoginController', 
+                controllerAs: 'vm',
+                templateUrl: 'app/views/login.html'
             })
 			.otherwise({
 				controller: 'HomeController', 
