@@ -2,38 +2,38 @@
     <div flex>
         <md-card>
             <md-toolbar class="md-accent md-tall">
-                <div class="md-toolbar-tools" flex>
+                <div class="md-toolbar-tools" layout="row" layout-xs="column">
                     <div class="profile-container" style="background-image: url('/assets/images/fit_1.jpg');"> </div>
                     <div layout="column" class="m-t-20">
                         <h2> Gabriel Malinosqui </h2>
                         <span class="md-caption-primary">4340 pontos</span>
                     </div>
                     <span flex></span>
-                    <md-button class="md-icon-button" ng-click="vm.showMessageDialog($event)">
+                    <md-button class="md-icon-button" ng-click="vm.showMessageDialog($event)" hide-xs>
                         <md-tooltip md-direction="bottom">
                             Cadastrar treino
                         </md-tooltip>
                         <md-icon> fitness_center </md-icon>
                     </md-button>
-                    <md-button class="md-icon-button" ng-click="vm.showMessageDialog($event)">
+                    <md-button class="md-icon-button" ng-click="vm.showMessageDialog($event)" hide-xs>
                         <md-tooltip md-direction="bottom">
                             Nova avaliação física
                         </md-tooltip>
                         <md-icon> accessibility </md-icon>
                     </md-button>
-                    <md-button class="md-icon-button" ng-click="vm.showMessageDialog($event)">
+                    <md-button class="md-icon-button" ng-click="vm.showMessageDialog($event)" hide-xs>
                         <md-tooltip md-direction="bottom">
                             Agenda de treinos
                         </md-tooltip>
                         <md-icon> today </md-icon>
                     </md-button>
-                    <md-button class="md-icon-button" ng-click="vm.showMessageDialog($event)">
+                    <md-button class="md-icon-button" ng-click="vm.showMessageDialog($event)" hide-xs>
                         <md-tooltip md-direction="bottom">
                             Enviar mensagem
                         </md-tooltip>
                         <md-icon> message </md-icon>
                     </md-button>
-                    <md-button class="md-icon-button" ng-click="icon = 'favorite'">
+                    <md-button class="md-icon-button" ng-click="icon = 'favorite'" hide-xs>
                         <md-tooltip md-direction="bottom">
                             Favoritar
                         </md-tooltip>
@@ -69,7 +69,7 @@
                         </md-list>
                     </md-content>
                 </md-tab>
-                 <md-tab label="Treinos">
+                <md-tab label="Treinos">
                 </md-tab>
                 <md-tab label="Histórico de treinos">
                     <md-content style="height: 340px;">
@@ -126,6 +126,31 @@
                 </md-toolbar>
             </md-fab-toolbar>-->
         </md-card>
-
+        <md-fab-toolbar md-open="false" count="0" md-direction="left" show-xs hide class="fab-fixed">
+            <md-fab-trigger class="align-with-text">
+                <md-button aria-label="menu" class="md-fab md-primary">
+                    <md-icon>add</md-icon>
+                </md-button>
+            </md-fab-trigger>
+            <md-toolbar>
+                <md-fab-actions class="md-toolbar-tools">
+                    <md-button aria-label="photo" class="md-icon-button" ng-click="icon = 'favorite'">
+                        <md-icon>{{icon || 'favorite_border'}}</md-icon>
+                    </md-button>
+                    <md-button aria-label="mensagem" class="md-icon-button" ng-click="vm.showMessageDialog($event)">
+                        <md-icon>message</md-icon>
+                    </md-button>
+                    <md-button aria-label="agenda" class="md-icon-button">
+                        <md-icon>today</md-icon>
+                    </md-button>
+                      <md-button aria-label="avaliação física" class="md-icon-button">
+                        <md-icon>accessibility</md-icon>
+                    </md-button>
+                     <md-button aria-label="favoritar" class="md-icon-button" >
+                        <md-icon>fitness_center</md-icon>
+                    </md-button>
+                </md-fab-actions>
+            </md-toolbar>
+        </md-fab-toolbar>
     </div>
 </div>

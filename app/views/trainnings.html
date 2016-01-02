@@ -1,86 +1,91 @@
 <md-card>
-    <form name="userForm">
-        <div id="section1" class="step">
-            <md-content ng-click="vm.setActive(1)">
-                <div class="circle" ng-class="{active: vm.stepIsActive(1)}">1</div>
-                <span class="step-title" ng-class="{active: vm.stepIsActive(1)}">Informações do treino</span>
-            </md-content>
-            <md-content layout-padding>
-                <div layout="row">
-                    <div class="line" flex="5"></div>
-                    <div flex="95" class="step-content" ng-class="{active: vm.stepIsActive(1)}">
-                        <div ng-show="vm.stepIsActive(1)" class="step-fade">
+    <div id="section1" class="step">
+        <md-content ng-click="vm.setActive(1)">
+            <div class="circle" ng-class="{active: vm.stepIsActive(1)}" ng-if="!trainningForm.$invalid || vm.stepIsActive(1)">1</div>
+            <md-icon class="step-warning" ng-if="trainningForm.$invalid && !vm.stepIsActive(1)">warning</md-icon>
+            <span class="step-title" ng-class="{active: vm.stepIsActive(1)}">Informações do treino</span>
+        </md-content>
+        <md-content layout-padding>
+            <div layout="row">
+                <div class="line" flex="5"></div>
+                <div flex="95" class="step-content" ng-class="{active: vm.stepIsActive(1)}">
+                    <div ng-show="vm.stepIsActive(1)" class="step-fade">
+                        <form name="trainningForm" novalidate>
                             <div layout-gt-xs="row">
                                 <md-input-container class="md-block" flex-gt-xs>
                                     <label>Nome</label>
-                                    <input ng-model="trainning.name">
+                                    <input ng-model="trainning.name" required>
                                 </md-input-container>
                                 <md-input-container class="md-block" flex-gt-xs="30">
                                     <label>Duração (minutos)</label>
-                                    <input ng-model="trainning.duration" type="number" step="0">
+                                    <input ng-model="trainning.duration" type="number" step="0" required>
                                 </md-input-container>
                             </div>
                             <div layout-gt-sm="row">
                                 <md-input-container class="md-block" flex-gt-sm>
                                     <label>Descrição</label>
-                                    <input ng-model="trainning.description">
+                                    <input ng-model="trainning.description" required>
                                 </md-input-container>
                             </div>
                             <div layout-gt-sm="row">
                                 <md-input-container class="md-block" flex-gt-sm>
                                     <label>Dificuldade</label>
-                                    <md-select ng-model="trainning.level">
+                                    <md-select ng-model="trainning.level" required>
                                         <md-option value="Fácil">Fácil</md-option>
                                         <md-option value="Intermediário">Intermediário</md-option>
                                         <md-option value="Difícil">Difícil</md-option>
                                         <md-option value="Insano">Insano</md-option>
                                     </md-select>
                                 </md-input-container>
-                            </div>
-                            <div>
-                                <md-button class="md-raised md-primary" ng-click="vm.setActive(2)">Continuar</md-button>
-                                <md-button class="md-accent" ng-click="vm.cancel()">Cancelar</md-button>
-                            </div>
+                        </form>
+                        </div>
+                        <div>
+                            <md-button class="md-raised md-primary" ng-click="vm.setActive(2)">Continuar</md-button>
+                            <md-button class="md-accent" ng-click="vm.cancel()">Cancelar</md-button>
                         </div>
                     </div>
                 </div>
-            </md-content>
-        </div>
-        <div id="section2" class="step">
-            <md-content ng-click="vm.setActive(2)">
-                <div class="circle" ng-class="{active: vm.stepIsActive(2)}">2</div>
-                <span class="step-title" ng-class="{active: vm.stepIsActive(2)}">Exercícios</span>
-            </md-content>
-            <md-content layout-padding>
-                <div layout="row">
-                    <div class="line" flex="5"></div>
-                    <div flex="95" class="step-content" ng-class="{active: vm.stepIsActive(2)}">
-                        <div layout-gt-xs="row" ng-show="vm.stepIsActive(2)" class="step-fade">
+            </div>
+        </md-content>
+    </div>
+    <div id="section2" class="step">
+        <md-content ng-click="vm.setActive(2)">
+            <div class="circle" ng-class="{active: vm.stepIsActive(2)}">2</div>
+            <span class="step-title" ng-class="{active: vm.stepIsActive(2)}">Exercícios</span>
+        </md-content>
+        <md-content layout-padding>
+            <div layout="row">
+                <div class="line" flex="5"></div>
+                <div flex="95" class="step-content" ng-class="{active: vm.stepIsActive(2)}">
+                    <div layout-gt-xs="row" ng-show="vm.stepIsActive(2)" class="step-fade">
 
-                        </div>
                     </div>
                 </div>
-            </md-content>
-        </div>
-        <div id="section3" class="step">
-            <md-content ng-click="vm.setActive(3)">
-                <div class="circle" ng-class="{active: vm.stepIsActive(3)}">3</div>
-                <span class="step-title" ng-class="{active: vm.stepIsActive(3)}">Alunos</span>
-                <span class="step-subtitle" ng-class="{active: vm.stepIsActive(3)}">Adicione o treino para os alunos</span>
-            </md-content>
-            <md-content layout-padding>
-                <div layout="row">
-                    <div class="line" flex="5"></div>
-                    <div flex="95" class="step-content chipsdemoContactChips" ng-class="{active: vm.stepIsActive(3)}">
-                        <div layout="column" ng-show="vm.stepIsActive(3)" class="step-fade">
-                            <md-contact-chips ng-model="vm.contacts" md-contacts="vm.querySearch($query)" md-contact-name="name" md-contact-image="image"
-                            md-contact-email="email" md-require-match="true" md-highlight-flags="i" filter-selected="true"
-                            placeholder="Alunos">
-                            </md-contact-chips>
-                        </div>
+            </div>
+        </md-content>
+    </div>
+    <div id="section3" class="step">
+        <md-content ng-click="vm.setActive(3)">
+            <div class="circle" ng-class="{active: vm.stepIsActive(3)}">3</div>
+            <span class="step-title" ng-class="{active: vm.stepIsActive(3)}">Alunos</span>
+            <span class="step-subtitle" ng-class="{active: vm.stepIsActive(3)}">Adicione o treino para os alunos</span>
+        </md-content>
+        <md-content layout-padding>
+            <div layout="row">
+                <div class="line" flex="5"></div>
+                <div flex="95" class="step-content chipsdemoContactChips" ng-class="{active: vm.stepIsActive(3)}">
+                    <div layout="column" ng-show="vm.stepIsActive(3)" class="step-fade">
+                        <form name="membersForm" novalidate></form>
+                        <md-contact-chips required ng-model="vm.contacts" md-contacts="vm.querySearch($query)" md-contact-name="name" md-contact-image="image"
+                        md-contact-email="email" md-require-match="true" md-highlight-flags="i" filter-selected="true" placeholder="Alunos">
+                        </md-contact-chips>
                     </div>
                 </div>
-            </md-content>
-        </div>
-    </form>
+            </div>
+        </md-content>
+    </div>
+    <div layout="row" ng-if="!trainningForm.$invalid">
+        <md-button class="md-accent md-raised">Finalizar</md-button>
+        <md-button class="md-accent">Cancelar</md-button>
+    </div>
 </md-card>

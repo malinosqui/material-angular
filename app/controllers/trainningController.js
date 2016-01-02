@@ -27,6 +27,10 @@
             else
                 return false;
         }
+        
+        // function stepHasError(step) {
+        //     // if()
+        // }
 
         vm.querySearch = querySearch;
         vm.allContacts = loadContacts();

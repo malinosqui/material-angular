@@ -138,6 +138,10 @@ display: block;
     animation:1s hide;
 }
 
+.step > md-content > .circle .ng-hide-add {
+    animation: 0.2s hide;
+}
+
 @keyframes hide {
   0% {
     opacity:1;
@@ -221,7 +225,6 @@ display: block;
 
  .line {
     border-left: 1px solid #BDBDBD;
-    margin-left: 0.3em;
 }
 
 .step-content {
@@ -250,3 +253,15 @@ display: block;
 
   .chipsdemoContactChips div div input {
     min-width: 400px; }
+    
+    .step-warning {
+        color: rgb(255,82,82);
+        margin-left: 0.1em;
+        font-size: 1.8em;
+        margin-top: -10px;
+    }
+    
+    .fab-fixed {
+        bottom: 45px; 
+        position: absolute;
+    }
