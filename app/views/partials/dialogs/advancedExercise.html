@@ -1,0 +1,110 @@
+<md-dialog aria-label="Exercício" ng-cloak>
+    <form>
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2>Cadastro de exercício avançado (super-série) &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</h2>
+                <span flex></span>
+                <md-button class="md-icon-button" ng-click="closeDialog()">
+                    <md-icon aria-label="Close dialog">close</md-icon>
+                </md-button>
+            </div>
+        </md-toolbar>
+        <md-dialog-content style="max-height:810px;">
+            <div class="md-dialog-content">
+                <form name="exerciseForm">
+                    <div layout="column">
+                        <md-input-container flex>
+                            <label>Nome do exercício avançado</label>
+                            <input type="text" ng-model="advancedExercise.name">
+                        </md-input-container>
+                    </div>
+                    <div layout="column">
+                        <md-autocomplete md-selected-item="exerciseSelected" md-search-text="searchText" md-items="item in exerciseList" md-item-text="item.name"
+                        md-min-length="0" placeholder="Procure por exercícios">
+                            <md-item-template>
+                                <span md-highlight-flags="^i">{{item.name}}</span>
+                            </md-item-template>
+                            <md-not-found>
+                                Nenhum exercício com o nome de "{{searchText}}" foi encontrado.
+                                <a ng-click="vm.newExercise(searchText)">Adicionar um novo</a>
+                            </md-not-found>
+                        </md-autocomplete>
+                        <div layout="row" layout-align="end center" ng-if="exerciseSelected != null">
+                            <md-button class="md-primary" ng-click="addExercise()">Adicionar</md-button>
+                        </div>
+
+                        <md-list ng-model="advancedExercise">
+                            <md-list-item class="md-2-line" ng-repeat="item in exercises track by item.id">
+                                <md-icon>fitness_center</md-icon>
+                                <div class="md-list-item-text">
+                                    <h3>{{item.name}}</h3>
+                                    <p ng-show="!advancedExercise.useSeriesReplays">{{item.series}}x{{item.replays}}</p>
+                                </div>
+                                <div class="md-secondary">
+                                    <md-menu md-position-mode="target-right target">
+                                        <md-button aria-label="Abrir menu" class="md-icon-button" ng-click="$mdOpenMenu($event)">
+                                            <md-icon>more_vert</md-icon>
+                                        </md-button>
+                                        <md-menu-content width="3">
+                                            <md-menu-item>
+                                                <md-button ng-click="ctrl.announceClick($index)">
+                                                    <md-icon>delete</md-icon>
+                                                    Excluir
+                                                </md-button>
+                                            </md-menu-item>
+                                            <md-menu-item>
+                                                <md-button ng-click="edit(item)">
+                                                    <md-icon>edit</md-icon>
+                                                    Editar
+                                                </md-button>
+                                            </md-menu-item>
+                                        </md-menu-content>
+                                    </md-menu>
+                                </div>
+                            </md-list-item>
+                        </md-list>
+                    </div>
+                </form>
+                <br>
+                <div layout="column" ng-show="editExercise">
+                    <form name="editExerciseForm" class="editExerciseForm">
+                        <h5>Edição do exercício</h5>
+                        <md-divider></md-divider>
+                        <div layout="row">
+                            <md-input-container flex>
+                                <label>Séries</label>
+                                <input type="number" ng-model="editExercise.series">
+                            </md-input-container>
+                            <md-input-container flex>
+                                <label>Repetições/Tempo(mins)</label>
+                                <input type="number" ng-model="editExercise.replays">
+                            </md-input-container>
+                        </div>
+                        <div layout="row">
+                            <md-input-container flex>
+                                <label>Carga(kg)</label>
+                                <input type="number" ng-model="editExercise.weigth">
+                            </md-input-container>
+                            <md-input-container flex>
+                                <label>Intervalo das repetições(segs)</label>
+                                <input type="number" ng-model="editExercise.interval">
+                            </md-input-container>
+                        </div>
+                        <div layout="row">
+                            <md-button class="md-primary md-raised" ng-click="finishEdit()">OK</md-button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </md-dialog-content>
+        <md-dialog-actions layout="row" ng-show="!editExercise">
+            <span flex></span>
+            <md-button ng-click="closeDialog()" class="md-accent">
+                Cancelar
+            </md-button>
+            <md-button ng-click="answer('send')" ng-disable="messageForm.$invalid">
+                Salvar
+            </md-button>
+        </md-dialog-actions>
+    </form>
+</md-dialog>

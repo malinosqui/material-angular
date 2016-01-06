@@ -39,6 +39,9 @@
                 </md-menu-item>
             </md-menu-content>
         </md-menu>
+        <md-button class="md-icon-button">
+            <md-icon>help</md-icon>
+        </md-button>
     </div>
     <md-divider></md-divider>
     <md-list-item class="md-2-line" ng-repeat="item in vm.members | filter: filter" ng-click="vm.navigateTo('members/' + item.id)">
