@@ -158,6 +158,19 @@
                     $scope.editExercise = null;
                     console.log($scope.editExercise);
                 }
+                
+                $scope.save = function(){
+                    angular.forEach(vm.exerciseList, function (value, key) {
+                        if(value.id == $scope.exercise.id){
+                            value = $scope.exercise;
+                            value.advanced = true;
+                            value.exercises = $scope.exercises;
+                            value.name = $scope.advancedExercise.name;
+                            $mdDialog.hide();
+                            console.log(value);
+                        }
+                    })
+                }
             }
         }
     }
