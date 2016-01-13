@@ -5,13 +5,13 @@
         .module('appMain')
         .controller('SideNavController', SideNavController);
 
-    SideNavController.$inject = ['$mdSidenav', '$location'];
+    SideNavController.$inject = ['$mdSidenav', '$location', '$http'];
 
-    function SideNavController($mdSidenav, $location) {
+    function SideNavController($mdSidenav, $location, $http) {
         var vm = this;
 
-        vm.menus = [{ icon: 'dashboard', name: 'Painel', route: 'dashboard' }, { icon: 'supervisor_account', name: 'Alunos', route: 'members' }, { icon: 'fitness_center', name: 'Treinos', route: 'trainnings' }];
-
+        vm.menus = [];
+        
         vm.toggleSidenav = function (menu) {
             $mdSidenav(menu).toggle();
         };
@@ -19,5 +19,9 @@
         vm.navigateTo = function (path) {
             $location.path(path);
         }
+        
+        $http.get('aux/side_menu.json').then(function (response) {
+            vm.menus = response.data;
+        });
     }
 })();

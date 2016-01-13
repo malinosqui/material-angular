@@ -1,0 +1,110 @@
+[
+    {
+        "id": 1,
+        "name": "Supino reto",
+        "advanced": false,
+        "category": "Peito",
+        "dificulty": 3,
+        "equipament": "Barra + pesos"
+    },
+    {
+        "id": 2,
+        "name": "Supino horizontal",
+        "advanced": false,
+        "category": "Peito",
+        "dificulty": 3,
+        "equipament": "Barra + pesos"
+    },
+    {
+        "id": 3,
+        "name": "Crossover",
+        "advanced": false,
+        "category": "Peito",
+        "dificulty": 2,
+        "equipament": "Crossover + pegada de mão"
+    },
+    {
+        "id": 4,
+        "name": "Fly reto",
+        "advanced": false,
+        "category": "Peito",
+        "dificulty": 2,
+        "equipament": "Halter"
+    },
+    {
+        "id": 5,
+        "name": "Remada unilateral",
+        "advanced": false,
+        "category": "Costas",
+        "dificulty": 4,
+        "equipament": "Halter"
+    },
+    {
+        "id": 6,
+        "name": "Rosca concentrada",
+        "advanced": false,
+        "category": "Bíceps",
+        "dificulty": 3,
+        "equipament": "Halter"
+    },
+    {
+        "id": 7,
+        "name": "Rosca direta",
+        "advanced": false,
+        "category": "Bíceps",
+        "dificulty": 3,
+        "equipament": "Pulley + barra reta"
+    },
+    {
+        "id": 8,
+        "name": "Rosca alternada",
+        "advanced": false,
+        "category": "Bíceps",
+        "dificulty": 2,
+        "equipament": "Halter"
+    },
+    {
+        "id": 9,
+        "name": "Supino reto + Remada unilateral",
+        "advanced": true,
+        "category": "Super série",
+        "dificulty": 4,
+        "equipament": "Barra + pesos - Halter",
+        "children_exercises": [
+            {
+                "id": 1,
+                "name": "Supino reto"
+            },
+            {
+                "id": 5,
+                "name": "Remada unilateral"
+            }
+        ]
+    },
+    {
+        "id": 10,
+        "name": "Desenvolvimento com halteres",
+        "advanced": false,
+        "category": "Ombro",
+        "dificulty": 3,
+        "equipament": "Halter + banco"
+    },
+    {
+        "id": 11,
+        "name": "Esteira",
+        "advanced": false,
+        "category": "Aeróbico",
+        "dificulty": 3,
+        "equipament": "Esteira",
+        "aerobic": true
+    },
+    {
+        "id": 12,
+        "name": "Bicicleta",
+        "advanced": false,
+        "category": "Aeróbico",
+        "dificulty": 3,
+        "equipament": "Bicicleta",
+        "aerobic": true
+    }
+]

@@ -5,21 +5,22 @@
         .module('appMain')
         .controller('MemberController', MemberController);
 
-    MemberController.$inject = ['$location', '$mdDialog', '$mdToast']
+    MemberController.$inject = ['$location', '$mdDialog', '$mdToast', '$http']
 
-    function MemberController($location, $mdDialog, $mdToast) {
+    function MemberController($location, $mdDialog, $mdToast, $http) {
         var vm = this;
 
         vm.member = { id: 1 };
         vm.members = [{ id: 1, name: 'Gabriel Malinosqui', age: 20 }, { id: 2, name: 'Juca Santos', age: 30 }, { id: 3, name: 'João Silva', age: 27 }];
         vm.navigateTo = navigateTo;
         vm.showMessageDialog = showMessageDialog;
-        vm.weeks = [
-            { id: 1, week: "Semana do dia 14/12 até 18", trainnings: [{ day: "14/12/2015", name: "Treino A", description: "Treino de fortalecimento de peito", comments: "Sem comentários" }, { day: "15/12/2015", name: "Treino B", description: "Treino de fortalecimento de costas", comments: "Treino insano!!" }, { day: "16/12/2015", name: "Treino C", description: "Treino de fortalecimento de ombros", comments: "Ta leve professor, pode aumentar" }, { day: "17/12/2015", name: "Treino D", description: "Treino de fortalecimento de pernas", comments: "ZICA!" }, { day: "17/12/2015", name: "Treino C", description: "Treino de fortalecimento de ombros", comments: "Ta leve professor, pode aumentar" }, { day: "17/12/2015", name: "Treino E", description: "Treino de fortalecimento de abdômem", comments: "ZICA!" }] },
-            { id: 2, week: "Semana do dia 21/12 até 25", trainnings: [{ day: "14/12/2015", name: "Treino A", description: "Treino de fortalecimento de peito", comments: "Sem comentários" }, { day: "15/12/2015", name: "Treino B", description: "Treino de fortalecimento de costas", comments: "Treino insano!!" }, { day: "16/12/2015", name: "Treino C", description: "Treino de fortalecimento de ombros", comments: "Ta leve professor, pode aumentar" }, { day: "17/12/2015", name: "Treino D", description: "Treino de fortalecimento de pernas", comments: "ZICA!" }, { day: "17/12/2015", name: "Treino C", description: "Treino de fortalecimento de ombros", comments: "Ta leve professor, pode aumentar" }, { day: "17/12/2015", name: "Treino E", description: "Treino de fortalecimento de abdômem", comments: "ZICA!" }] },
-            { id: 3, week: "Semana do dia 28/12 até 1/1", trainnings: [{ day: "14/12/2015", name: "Treino A", description: "Treino de fortalecimento de peito", comments: "Sem comentários" }, { day: "15/12/2015", name: "Treino B", description: "Treino de fortalecimento de costas", comments: "Treino insano!!" }, { day: "16/12/2015", name: "Treino C", description: "Treino de fortalecimento de ombros", comments: "Ta leve professor, pode aumentar" }, { day: "17/12/2015", name: "Treino D", description: "Treino de fortalecimento de pernas", comments: "ZICA!" }, { day: "17/12/2015", name: "Treino C", description: "Treino de fortalecimento de ombros", comments: "Ta leve professor, pode aumentar" }, { day: "17/12/2015", name: "Treino E", description: "Treino de fortalecimento de abdômem", comments: "ZICA!" }] }
-        ]
+        vm.weeks = [];
 
+
+        $http.get('/aux/weeks.json').then(function (response) {
+            vm.weeks = response.data;
+        });
+        
         vm.avaliations = buildGridModel({
             title: "Avaliação ",
             background: ""

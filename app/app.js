@@ -2,8 +2,8 @@
     'use strict';
 
     angular.module('appMain', ['ngRoute', 'ngMaterial', 'ngAnimate', 'ui.sortable'])
-        .config(function ($mdThemingProvider) {
-            
+        .config(function ($mdThemingProvider, $mdIconProvider) {
+
             $mdThemingProvider.definePalette('custom-blue', {
                 '50': '2B2E4A',
                 '100': '2B2E4A',
@@ -21,6 +21,7 @@
                 'A700': 'd50000',
                 'contrastDefaultColor': 'light'
             });
+
             $mdThemingProvider.definePalette('custom-red', {
                 '50': 'E84545',
                 '100': 'E84545',
@@ -36,7 +37,7 @@
                 'A200': 'E84545',
                 'A400': 'E84545',
                 'A700': 'd50000',
-                'contrastDefaultColor': 'light' 
+                'contrastDefaultColor': 'light'
             });
 
             $mdThemingProvider.theme('default')
@@ -44,7 +45,7 @@
                 .accentPalette('custom-red')
                 .warnPalette('custom-blue')
                 .backgroundPalette('grey');
-                
+
             $mdThemingProvider.definePalette('white-palette', {
                 '50': 'fff',
                 '100': 'fff',
@@ -65,6 +66,11 @@
             $mdThemingProvider.theme('custom')
                 .primaryPalette('white-palette')
                 .accentPalette('custom-blue')
-                .warnPalette('red')
+                .warnPalette('red');
+
+            $mdIconProvider.defaultIconSet('assets/mdi.svg');
         });
+
+
+
 })(angular);

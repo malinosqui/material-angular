@@ -6,7 +6,7 @@
                     <div class="profile-container" style="background-image: url('/assets/images/fit_1.jpg');"> </div>
                     <div layout="column" class="m-t-20">
                         <h2> Gabriel Malinosqui </h2>
-                        <span class="md-caption-primary">4340 pontos</span>
+                        <span class="md-caption-primary">Nível 14 - Corredor</span>
                     </div>
                     <span flex></span>
                     <md-button class="md-icon-button" ng-click="vm.showMessageDialog($event)" hide-xs>
@@ -44,65 +44,81 @@
             </md-toolbar>
             <md-tabs md-dynamic-height md-border-bottom>
                 <md-tab label="Informações">
-                    <md-content class="md-padding">
-                        <md-list>
-                            <md-list-item>
-                                <md-icon>person</md-icon>
-                                <p>Gabriel Malinosqui</p>
-                            </md-list-item>
-                            <md-list-item>
-                                <md-icon>today</md-icon>
-                                <p>20 anos</p>
-                            </md-list-item>
-                            <md-list-item>
-                                <md-icon>face</md-icon>
-                                <p>Masculino</p>
-                            </md-list-item>
-                            <md-list-item>
-                                <md-icon>accessibility</md-icon>
-                                <p>1,72cm</p>
-                            </md-list-item>
-                            <md-list-item>
-                                <md-icon>restaurant_menu</md-icon>
-                                <p>65kg</p>
-                            </md-list-item>
-                        </md-list>
-                    </md-content>
-                </md-tab>
-                <md-tab label="Treinos">
-                </md-tab>
-                <md-tab label="Histórico de treinos">
-                    <md-content style="height: 340px;">
-                        <section ng-repeat="execution in vm.weeks track by execution.id">
-                            <md-subheader class="md-accent">
-                                <md-icon class="md-accent">today</md-icon> {{execution.week}}</md-subheader>
-                            <md-list layout-padding>
-                                <md-list-item class="md-3-line" ng-repeat="t in execution.trainnings track by $index" ng-click="toast()">
-                                    <img ng-src="assets/images/trainning_thumb2.jpg" class="md-avatar" alt="Treino">
-                                    <div class="md-list-item-text">
-                                        <h3>{{t.day}} - {{t.name}}</h3>
-                                        <h4>{{t.description}}</h4>
-                                        <p>
-                                            Comentários: {{t.comments}}
-                                        </p>
-                                    </div>
+                    <md-tab-label>
+                        <md-icon show-xs hide>info</md-icon> <span hide-xs>Informações</span></md-tab-label>
+                    <md-tab-body>
+                        <md-content class="md-padding">
+                            <md-list>
+                                <md-list-item>
+                                    <md-icon>person</md-icon>
+                                    <p>Gabriel Malinosqui</p>
+                                </md-list-item>
+                                <md-list-item>
+                                    <md-icon>today</md-icon>
+                                    <p>20 anos</p>
+                                </md-list-item>
+                                <md-list-item>
+                                    <md-icon>face</md-icon>
+                                    <p>Masculino</p>
+                                </md-list-item>
+                                <md-list-item>
+                                    <md-icon>accessibility</md-icon>
+                                    <p>1,72cm</p>
+                                </md-list-item>
+                                <md-list-item>
+                                    <md-icon>restaurant_menu</md-icon>
+                                    <p>65kg</p>
                                 </md-list-item>
                             </md-list>
-                        </section>
-                    </md-content>
+                        </md-content>
+                    </md-tab-body>
+                </md-tab>
+                <md-tab label="Treinos">
+                    <md-tab-label>
+                        <md-icon show-xs hide>fitness_center</md-icon> <span hide-xs>Treinos</span></md-tab-label>
+                    <md-tab-body>
+                    </md-tab-body>
+                </md-tab>
+                <md-tab label="Histórico de treinos">
+                    <md-tab-label>
+                        <md-icon show-xs hide>today</md-icon> <span hide-xs>Histórico de treinos</span></md-tab-label>
+                    <md-tab-body>
+                        <md-content style="height: 340px;">
+                            <section ng-repeat="execution in vm.weeks track by execution.id">
+                                <md-subheader class="md-accent">
+                                    <md-icon class="md-accent">today</md-icon> {{execution.week}}</md-subheader>
+                                <md-list layout-padding>
+                                    <md-list-item class="md-3-line" ng-repeat="t in execution.trainnings track by $index" ng-click="toast()">
+                                        <img ng-src="assets/images/trainning_thumb2.jpg" class="md-avatar" alt="Treino">
+                                        <div class="md-list-item-text">
+                                            <h3>{{t.day}} - {{t.name}}</h3>
+                                            <h4>{{t.description}}</h4>
+                                            <p>
+                                                Comentários: {{t.comments}}
+                                            </p>
+                                        </div>
+                                    </md-list-item>
+                                </md-list>
+                            </section>
+                        </md-content>
+                    </md-tab-body>
                 </md-tab>
                 <md-tab label="Avaliações físicas">
-                    <md-content style="height: 300px;" class="md-padding">
-                        <md-grid-list md-cols-sm="1" md-cols-md="2" md-cols-gt-md="6" md-row-height-gt-md="1:1" md-row-height="4:3" md-gutter="8px"
-                        md-gutter-gt-sm="4px">
+                    <md-tab-label>
+                        <md-icon show-xs hide>accessibility</md-icon> <span hide-xs>Avaliações físicas</span></md-tab-label>
+                    <md-tab-body>
+                        <md-content style="height: 300px;" class="md-padding">
+                            <md-grid-list md-cols-sm="1" md-cols-md="2" md-cols-gt-md="6" md-row-height-gt-md="1:1" md-row-height="4:3" md-gutter="8px"
+                            md-gutter-gt-sm="4px">
 
-                            <md-grid-tile ng-repeat="avaliation in vm.avaliations" md-rowspan="{{avaliation.span.row}}" md-colspan="{{avaliation.span.col}}"
-                            md-colspan-sm="1" ng-class="avaliation.background" ng-click="vm.foo()">
-                                <md-grid-tile-footer>
-                                    <h3> <a ng-href="#/members/avaliations/{{avaliation.id}}" class="figcaption-a">{{avaliation.title}}</a></h3></md-grid-tile-footer>
-                            </md-grid-tile>
-                        </md-grid-list>
-                    </md-content>
+                                <md-grid-tile ng-repeat="avaliation in vm.avaliations" md-rowspan="{{avaliation.span.row}}" md-colspan="{{avaliation.span.col}}"
+                                md-colspan-sm="1" ng-class="avaliation.background" ng-click="vm.foo()">
+                                    <md-grid-tile-footer>
+                                        <h3> <a ng-href="#/members/avaliations/{{avaliation.id}}" class="figcaption-a">{{avaliation.title}}</a></h3></md-grid-tile-footer>
+                                </md-grid-tile>
+                            </md-grid-list>
+                        </md-content>
+                    </md-tab-body>
                 </md-tab>
             </md-tabs>
             <!--<md-fab-toolbar md-direction="left">
@@ -143,10 +159,10 @@
                     <md-button aria-label="agenda" class="md-icon-button">
                         <md-icon>today</md-icon>
                     </md-button>
-                      <md-button aria-label="avaliação física" class="md-icon-button">
+                    <md-button aria-label="avaliação física" class="md-icon-button">
                         <md-icon>accessibility</md-icon>
                     </md-button>
-                     <md-button aria-label="favoritar" class="md-icon-button" >
+                    <md-button aria-label="favoritar" class="md-icon-button">
                         <md-icon>fitness_center</md-icon>
                     </md-button>
                 </md-fab-actions>

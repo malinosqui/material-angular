@@ -55,7 +55,8 @@
                     <md-list-item ng-click="vm.navigateTo(item.route)" ng-repeat="item in vm.menus" data-drag="true" jqyoui-draggable>
                         <p class="md-accent">{{item.name}}</p>
                         <span flex></span>
-                        <md-icon class="md-icon-button">{{item.icon}}</md-icon>
+                        <md-icon class="md-icon-button" ng-if="!item.icon2">{{item.icon}}</md-icon>
+                        <md-icon md-svg-icon="{{item.icon2}}" ng-if="item.icon2"></md-icon>
                     </md-list-item>
                     <md-divider>
                         <md-list-item ng-click="vm.navigateTo('/settings')">
@@ -79,9 +80,9 @@
                     <md-button class="md-icon-button" ng-click="vm.toggleSidenav('left')" hide-gt-md aria-label="Menu">
                         <md-icon>menu</md-icon>
                     </md-button>
-                    <h4 class="md-title">99fit <md-icon>keyboard_arrow_right</md-icon> Painel</h4>
+                    <h4 class="md-title">99fit</h4>
                     <span flex></span>
-
+                    
                     <md-button class="md-icon-button">
                         <md-icon style="color: rgba(0,0,0,0.54) !important;">notifications</md-icon>
                     </md-button>
@@ -107,9 +108,10 @@
         <script src="app/routes.js"></script>
         <script src="app/controllers/homeController.js"></script>
         <script src="app/controllers/sideNavController.js"></script>
-        <script src="app/controllers/memberController.js"></script>
-        <script src="app/controllers/trainningController.js"></script>
+        <script src="app/controllers/member/memberController.js"></script>
+        <script src="app/controllers/trainning/trainningController.js"></script>
         <script src="app/controllers/loginController.js"></script>
+        <script src="app/controllers/exercise/exerciseController.js"></script>
 
 
 </body>

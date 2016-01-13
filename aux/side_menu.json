@@ -1,0 +1,22 @@
+[
+    {
+        "icon": "dashboard",
+        "name": "Painel",
+        "route": "dashboard"
+    },
+    {
+        "icon": "supervisor_account",
+        "name": "Alunos",
+        "route": "members"
+    },
+    {
+        "name": "Treinos",
+        "route": "trainnings",
+        "icon2": "weight-kilogram"
+    },
+    {
+        "name": "Exercícios",
+        "route": "exercises",
+        "icon": "fitness_center"
+    }
+]

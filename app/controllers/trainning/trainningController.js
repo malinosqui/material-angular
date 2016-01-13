@@ -5,16 +5,16 @@
         .module('appMain')
         .controller('TrainningController', TrainningController);
 
-    TrainningController.$inject = ['$location', '$mdDialog', '$mdSidenav', '$mdMedia'];
+    TrainningController.$inject = ['$location', '$mdDialog', '$mdSidenav', '$mdMedia', '$http'];
 
-    function TrainningController($location, $mdDialog, $mdSidenav, $mdMedia) {
+    function TrainningController($location, $mdDialog, $mdSidenav, $mdMedia, $http) {
         var vm = this;
 
         vm.activeStep = 1;
         vm.steps = [{ title: "Informações do treino", subTitle: null, active: "true" }, { title: "Exercícios", subTitle: null, active: "false" }, { title: "Alunos", subTitle: "Adicione o treino para seus alunos", active: "false" }]
         vm.filterSelected = true;
         vm.stepIsActive = stepIsActive;
-        vm.exercises = [{ id: 1, name: 'Supino reto' }, { id: 2, name: "Supino horizontal" }, { id: 3, name: "Supino vertical" }, { id: 4, name: "Fly reto" }, { id: 5, name: "Barra invertida" }, { id: 6, name: "Bíceps concentrado" }]
+        vm.exercises = [];
         vm.exerciseList = []
         vm.allowEdit = false;
 
@@ -26,6 +26,11 @@
         vm.showAdvanced = showAdvanced;
 
         vm.contacts = [vm.allContacts[0]];
+
+        $http.get("aux/exercises.json").then(function (response) {
+            vm.exercises = response.data;
+        });
+
 
         function setActive(step) {
             vm.activeStep = step;
@@ -133,10 +138,10 @@
                 $scope.exerciseList = exerciseList;
                 $scope.exercises = [];
                 $scope.advancedExercise = {};
-                
+
                 $scope.exercises.push($scope.exercise)
                 $scope.advancedExercise.name = $scope.exercise.name + " +";
-                
+
                 $scope.closeDialog = function () {
                     $mdDialog.hide();
                 }
@@ -146,22 +151,22 @@
                     $scope.exerciseSelected.replays = 10;
                     $scope.exercises.push($scope.exerciseSelected);
                 }
-                
+
                 $scope.edit = function (ex) {
                     console.log(ex);
                     $scope.editExercise = ex;
                     console.log($scope.editExercise);
                 }
-                
-                $scope.finishEdit = function(){
+
+                $scope.finishEdit = function () {
                     console.log($scope.editExercise);
                     $scope.editExercise = null;
                     console.log($scope.editExercise);
                 }
-                
-                $scope.save = function(){
+
+                $scope.save = function () {
                     angular.forEach(vm.exerciseList, function (value, key) {
-                        if(value.id == $scope.exercise.id){
+                        if (value.id == $scope.exercise.id) {
                             value = $scope.exercise;
                             value.advanced = true;
                             value.exercises = $scope.exercises;

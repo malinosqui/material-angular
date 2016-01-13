@@ -16,22 +16,27 @@
 			.when('/members', {
 				controller: 'MemberController', 
 				controllerAs: 'vm', 
-				templateUrl: 'app/views/members.html'
+				templateUrl: 'app/views/member/list.html'
 			})
 			.when('/members/:id', {
 				controller: 'MemberController', 
 				controllerAs: 'vm', 
-				templateUrl: 'app/views/memberDetail.html'
+				templateUrl: 'app/views/member/detail.html'
 			})
             .when('/trainnings', {
                 controller: 'TrainningController',
                 controllerAs: 'vm', 
-                templateUrl: 'app/views/trainnings.html'
-            }).
-            when('/login', {
+                templateUrl: 'app/views/trainning/create.html'
+            })
+            .when('/login', {
                 controller:'LoginController', 
                 controllerAs: 'vm',
                 templateUrl: 'app/views/login.html'
+            })
+            .when('/exercises', {
+                controller: "ExerciseController",
+                controllerAs: 'vm', 
+                templateUrl: 'app/views/exercise/list.html'
             })
 			.otherwise({
 				controller: 'HomeController', 
