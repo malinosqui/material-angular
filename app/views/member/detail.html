@@ -13,7 +13,7 @@
                         <md-tooltip md-direction="bottom">
                             Cadastrar treino
                         </md-tooltip>
-                        <md-icon> fitness_center </md-icon>
+                        <md-icon md-svg-icon="weight-kilogram"> </md-icon>
                     </md-button>
                     <md-button class="md-icon-button" ng-click="vm.showMessageDialog($event)" hide-xs>
                         <md-tooltip md-direction="bottom">
@@ -26,6 +26,12 @@
                             Agenda de treinos
                         </md-tooltip>
                         <md-icon> today </md-icon>
+                    </md-button>
+                    <md-button class="md-icon-button" ng-click="" hide-xs>
+                        <md-tooltip md-direction="bottom">
+                            Cadastrar metas
+                        </md-tooltip>
+                        <md-icon md-svg-icon="trophy-award"> </md-icon>
                     </md-button>
                     <md-button class="md-icon-button" ng-click="vm.showMessageDialog($event)" hide-xs>
                         <md-tooltip md-direction="bottom">
@@ -58,7 +64,7 @@
                                     <p>20 anos</p>
                                 </md-list-item>
                                 <md-list-item>
-                                    <md-icon>face</md-icon>
+                                    <md-icon md-svg-icon='gender-male-female'></md-icon>
                                     <p>Masculino</p>
                                 </md-list-item>
                                 <md-list-item>
@@ -66,7 +72,7 @@
                                     <p>1,72cm</p>
                                 </md-list-item>
                                 <md-list-item>
-                                    <md-icon>restaurant_menu</md-icon>
+                                    <md-icon md-svg-icon="scale-bathroom"></md-icon>
                                     <p>65kg</p>
                                 </md-list-item>
                             </md-list>
@@ -75,7 +81,7 @@
                 </md-tab>
                 <md-tab label="Treinos">
                     <md-tab-label>
-                        <md-icon show-xs hide>fitness_center</md-icon> <span hide-xs>Treinos</span></md-tab-label>
+                        <md-icon md-svg-icon="weight-kilogram" show-xs hide></md-icon> <span hide-xs>Treinos</span></md-tab-label>
                     <md-tab-body>
                     </md-tab-body>
                 </md-tab>
@@ -142,31 +148,29 @@
                 </md-toolbar>
             </md-fab-toolbar>-->
         </md-card>
-        <md-fab-toolbar md-open="false" count="0" md-direction="left" show-xs hide class="fab-fixed">
+        <md-fab-speed-dial md-open="false" count="0" md-direction="up" show-xs hide class="fab-fixed">
             <md-fab-trigger class="align-with-text">
                 <md-button aria-label="menu" class="md-fab md-primary">
                     <md-icon>add</md-icon>
                 </md-button>
             </md-fab-trigger>
-            <md-toolbar>
-                <md-fab-actions class="md-toolbar-tools">
-                    <md-button aria-label="photo" class="md-icon-button" ng-click="icon = 'favorite'">
-                        <md-icon>{{icon || 'favorite_border'}}</md-icon>
-                    </md-button>
-                    <md-button aria-label="mensagem" class="md-icon-button" ng-click="vm.showMessageDialog($event)">
-                        <md-icon>message</md-icon>
-                    </md-button>
-                    <md-button aria-label="agenda" class="md-icon-button">
-                        <md-icon>today</md-icon>
-                    </md-button>
-                    <md-button aria-label="avaliação física" class="md-icon-button">
-                        <md-icon>accessibility</md-icon>
-                    </md-button>
-                    <md-button aria-label="favoritar" class="md-icon-button">
-                        <md-icon>fitness_center</md-icon>
-                    </md-button>
-                </md-fab-actions>
-            </md-toolbar>
-        </md-fab-toolbar>
+            <md-fab-actions class="md-toolbar-tools">
+                <md-button aria-label="mensagem" class="md-icon-button" ng-click="vm.showMessageDialog($event)">
+                    <md-icon>message</md-icon>
+                </md-button>
+                <md-button aria-label="metas" class="md-icon-button">
+                    <md-icon md-svg-icon="trophy-award"></md-icon>
+                </md-button>
+                <md-button aria-label="agenda" class="md-icon-button">
+                    <md-icon>today</md-icon>
+                </md-button>
+                <md-button aria-label="avaliação física" class="md-icon-button">
+                    <md-icon>accessibility</md-icon>
+                </md-button>
+                <md-button aria-label="favoritar" class="md-icon-button">
+                    <md-icon md-svg-icon="weight-kilogram"></md-icon>
+                </md-button>
+            </md-fab-actions>
+        </md-fab-speed-dial>
     </div>
 </div>

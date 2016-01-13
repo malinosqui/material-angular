@@ -244,10 +244,6 @@ display: block;
     cursor: pointer;
 }
 
-.step:not(:first-child){
-    margin-top: -20px;
-}
-
 .md-contact-chips .md-chips .md-chip .md-contact-avatar img {
     height: 32px;
     border-radius: 16px;
@@ -293,4 +289,11 @@ h1.title {
 .editExerciseForm > md-divider{
     margin-top: -15px;
     margin-bottom: 20px;
+}
+
+.md-fab.md-fab-bottom-right {
+    transition-property: transform, background-color, box-shadow;
+}
+.md-fab.md-fab-bottom-right.hide2 {
+    transform: translateY(200%);
 }

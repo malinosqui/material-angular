@@ -1,56 +1,61 @@
 <style>
-    md-input-container .md-errors-spacer{
+    md-input-container .md-errors-spacer {
         display: none;
+    }
+    
+    .filter {
+        margin-top: 15px;
     }
 </style>
 
-<md-list class="md-whiteframe-1dp white">
-    <div class="md-actions" layout layout-align="end center">
-        <md-subheader class="md-no-sticky" style="width: 75%;" >
-            <span ng-show="!showFilter">
+<div flex>
+    <md-card>
+        <md-toolbar class="md-accent" layout layout-align="end center">
+            <div class="md-toolbar-tools" style="width: 75%;" class="md-primary">
+                <span ng-show="!showFilter">
                 Lista de alunos
              </span>
-            <md-content ng-show="showFilter" >
-                <form>
-                    <md-input-container class="no-margin md-block" md-no-float>
-                        <md-icon>search</md-icon>
-                        <input ng-model="filter" type="text" placeholder="Pesquisar em alunos">
-                    </md-input-container>
-                </form>
-            </md-content>
-        </md-subheader>
-        <span flex></span>
-        <md-button class="md-icon-button" ng-click="showFilter = !showFilter">
-            <md-tooltip md-direction="left">Filtro</md-tooltip>
-            <md-icon>filter_list</md-icon>
-        </md-button>
-        <md-menu md-position-mode="target-right target">
-            <md-button class="md-icon-button" aria-label="{{list.menu.name}}" ng-click="$mdOpenMenu($event)">
-                <md-icon>settings</md-icon>
+                <div ng-show="showFilter" class="filter">
+                    <form>
+                        <md-input-container class="no-margin md-block" md-no-float>
+                            <md-icon>search</md-icon>
+                            <input ng-model="filter" type="text">
+                        </md-input-container>
+                    </form>
+                </div>
+            </div>
+            <span flex></span>
+            <md-button class="md-icon-button" ng-click="showFilter = !showFilter">
+                <md-tooltip md-direction="left">Filtro</md-tooltip>
+                <md-icon>filter_list</md-icon>
             </md-button>
-            <md-menu-content width="4">
-                <md-menu-item>
-                    <md-button ng-click="vm.fixOnDash('membersList')">
-                        <div layout="row">
-                            <p flex>Travar no Painel</p>
-                            <md-icon md-menu-align-target style="margin: auto 3px auto 0;">add</md-icon>
-                        </div>
-                    </md-button>
-                </md-menu-item>
-            </md-menu-content>
-        </md-menu>
-        <md-button class="md-icon-button">
-            <md-icon>help</md-icon>
-        </md-button>
-    </div>
-    <md-divider></md-divider>
-    <md-list-item class="md-2-line" ng-repeat="item in vm.members | filter: filter" ng-click="vm.navigateTo('members/' + item.id)">
-         <img ng-src="/assets/images/me.jpg" class="md-avatar" alt="{{item.who}}" />
-        <div class="md-list-item-text" layout="column">
-            <h3 class="md-body-2">{{item.name}}</h3>
-            <p class="md-caption">{{item.age}} anos</p>
-        </div>
-        <span flex></span>
-        <md-icon aria-label="Show Item">chevron_right</md-icon>
-    </md-list-item>
-</md-list>
+            <md-menu md-position-mode="target-right target">
+                <md-button class="md-icon-button" aria-label="{{list.menu.name}}" ng-click="$mdOpenMenu($event)">
+                    <md-icon>settings</md-icon>
+                </md-button>
+                <md-menu-content width="4">
+                    <md-menu-item>
+                        <md-button ng-click="vm.fixOnDash('membersList')">
+                            <div layout="row">
+                                <p flex>Travar no Painel</p>
+                                <md-icon md-menu-align-target style="margin: auto 3px auto 0;">add</md-icon>
+                            </div>
+                        </md-button>
+                    </md-menu-item>
+                </md-menu-content>
+            </md-menu>
+            <md-button class="md-icon-button">
+                <md-icon>help</md-icon>
+            </md-button>
+        </md-toolbar>
+        <md-list-item class="md-2-line" ng-repeat="item in vm.members | filter: filter" ng-click="vm.navigateTo('members/' + item.id)">
+            <img ng-src="/assets/images/me.jpg" class="md-avatar" alt="{{item.who}}" />
+            <div class="md-list-item-text" layout="column">
+                <h3 class="md-body-2">{{item.name}}</h3>
+                <p class="md-caption">{{item.age}} anos</p>
+            </div>
+            <span flex></span>
+            <md-icon aria-label="Show Item">chevron_right</md-icon>
+        </md-list-item>
+    </md-card>
+</div>

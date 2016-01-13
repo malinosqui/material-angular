@@ -1,155 +1,177 @@
-<md-card>
-    <div class="md-actions" layout layout-align="end center" style="margin: 0; margin-bottom: -20px;">
-        <md-subheader class="md-no-sticky">
+<div flex>
+    <md-card>
+        <md-toolbar class="md-accent" layout layout-align="end center">
+            <div class="md-toolbar-tools" style="width: 75%;" class="md-primary">
+                <span ng-show="!showFilter">
+                Criação de treinos
+             </span>
+            </div>
+            <span flex></span>
+            <md-menu md-position-mode="target-right target">
+                <md-button class="md-icon-button" aria-label="{{list.menu.name}}" ng-click="$mdOpenMenu($event)">
+                    <md-icon>settings</md-icon>
+                </md-button>
+                <md-menu-content width="4">
+                    <md-menu-item>
+                        <md-button ng-click="vm.fixOnDash('membersList')">
+                            <div layout="row">
+                                <p flex>Travar no Painel</p>
+                                <md-icon md-menu-align-target style="margin: auto 3px auto 0;">add</md-icon>
+                            </div>
+                        </md-button>
+                    </md-menu-item>
+                </md-menu-content>
+            </md-menu>
             <md-button class="md-icon-button">
                 <md-icon>help</md-icon>
             </md-button>
-        </md-subheader>
-    </div>
-    <div id="section1" class="step">
-        <md-content ng-click="vm.setActive(1)">
-            <div class="circle" ng-class="{active: vm.stepIsActive(1)}" ng-if="!trainningForm.$invalid || vm.stepIsActive(1)">1</div>
-            <md-icon class="step-warning" ng-if="trainningForm.$invalid && !vm.stepIsActive(1)">warning</md-icon>
-            <span class="step-title" ng-class="{active: vm.stepIsActive(1)}">Informações do treino</span>
-        </md-content>
-        <md-content layout-padding>
-            <div layout="row">
-                <div class="line" flex="5"></div>
-                <div flex="95" class="step-content" ng-class="{active: vm.stepIsActive(1)}">
-                    <div ng-show="vm.stepIsActive(1)" class="step-fade">
-                        <form name="trainningForm" novalidate>
-                            <div layout-gt-xs="row">
-                                <md-input-container class="md-block" flex-gt-xs>
-                                    <label>Nome</label>
-                                    <input ng-model="trainning.name" required>
-                                </md-input-container>
-                                <md-input-container class="md-block" flex-gt-xs="30">
-                                    <label>Duração (minutos)</label>
-                                    <input ng-model="trainning.duration" type="number" step="0" required>
-                                </md-input-container>
-                            </div>
-                            <div layout-gt-sm="row">
-                                <md-input-container class="md-block" flex-gt-sm>
-                                    <label>Descrição</label>
-                                    <input ng-model="trainning.description" required>
-                                </md-input-container>
-                            </div>
-                            <div layout-gt-sm="row">
-                                <md-input-container class="md-block" flex-gt-sm>
-                                    <label>Dificuldade</label>
-                                    <md-select ng-model="trainning.level" required>
-                                        <md-option value="Fácil">Fácil</md-option>
-                                        <md-option value="Intermediário">Intermediário</md-option>
-                                        <md-option value="Difícil">Difícil</md-option>
-                                        <md-option value="Insano">Insano</md-option>
-                                    </md-select>
-                                </md-input-container>
-                            </div>
-                        </form>
-                    </div>
-                    <!--<div>
+        </md-toolbar>
+        <div id="section1" class="step">
+            <md-content ng-click="vm.setActive(1)">
+                <div class="circle" ng-class="{active: vm.stepIsActive(1)}" ng-if="!trainningForm.$invalid || vm.stepIsActive(1)">1</div>
+                <md-icon class="step-warning" ng-if="trainningForm.$invalid && !vm.stepIsActive(1)">warning</md-icon>
+                <span class="step-title" ng-class="{active: vm.stepIsActive(1)}">Informações do treino</span>
+            </md-content>
+            <md-content layout-padding>
+                <div layout="row">
+                    <div class="line" flex="5"></div>
+                    <div flex="95" class="step-content" ng-class="{active: vm.stepIsActive(1)}">
+                        <div ng-show="vm.stepIsActive(1)" class="step-fade">
+                            <form name="trainningForm" novalidate>
+                                <div layout-gt-xs="row">
+                                    <md-input-container class="md-block" flex-gt-xs>
+                                        <label>Nome</label>
+                                        <input ng-model="trainning.name" required>
+                                    </md-input-container>
+                                    <md-input-container class="md-block" flex-gt-xs="30">
+                                        <label>Duração (minutos)</label>
+                                        <input ng-model="trainning.duration" type="number" step="0" required>
+                                    </md-input-container>
+                                </div>
+                                <div layout-gt-sm="row">
+                                    <md-input-container class="md-block" flex-gt-sm>
+                                        <label>Descrição</label>
+                                        <input ng-model="trainning.description" required>
+                                    </md-input-container>
+                                </div>
+                                <div layout-gt-sm="row">
+                                    <md-input-container class="md-block" flex-gt-sm>
+                                        <label>Dificuldade</label>
+                                        <md-select ng-model="trainning.level" required>
+                                            <md-option value="Fácil">Fácil</md-option>
+                                            <md-option value="Intermediário">Intermediário</md-option>
+                                            <md-option value="Difícil">Difícil</md-option>
+                                            <md-option value="Insano">Insano</md-option>
+                                        </md-select>
+                                    </md-input-container>
+                                </div>
+                            </form>
+                        </div>
+                        <!--<div>
                             <md-button class="md-raised md-primary" ng-click="vm.setActive(2)">Continuar</md-button>
                             <md-button class="md-accent" ng-click="vm.cancel()">Cancelar</md-button>
                         </div>-->
+                    </div>
                 </div>
-            </div>
-        </md-content>
-    </div>
-    <div id="section2" class="step">
-        <md-content ng-click="vm.setActive(2)">
-            <div class="circle" ng-class="{active: vm.stepIsActive(2)}">2</div>
-            <span class="step-title" ng-class="{active: vm.stepIsActive(2)}">Exercícios</span>
-        </md-content>
-        <md-content layout-padding>
-            <div layout="row">
-                <div class="line" flex="5"></div>
-                <div flex="95" class="step-content" ng-class="{active: vm.stepIsActive(2)}">
-                    <div layout="column" ng-show="vm.stepIsActive(2)" class="step-fade">
-                        <md-autocomplete md-selected-item="vm.exerciseSelected" md-search-text="vm.searchText" md-items="item in vm.exercises" md-item-text="item.name"
-                        md-min-length="0" placeholder="Procure por exercícios">
-                            <md-item-template>
-                                <span md-highlight-flags="^i">{{item.name}}</span>
-                            </md-item-template>
-                            <md-not-found>
-                                Nenhum exercício com o nome de "{{vm.searchText}}" foi encontrado.
-                                <a ng-click="vm.newExercise(vm.searchText)">Adicionar um novo</a>
-                            </md-not-found>
-                        </md-autocomplete>
-                        <div layout="row" layout-align="end center" ng-if="vm.exerciseSelected != null">
-                            <md-button class="md-primary" ng-click="vm.addExercise()">Adicionar</md-button>
+            </md-content>
+        </div>
+        <div id="section2" class="step">
+            <md-content ng-click="vm.setActive(2)">
+                <div class="circle" ng-class="{active: vm.stepIsActive(2)}">2</div>
+                <span class="step-title" ng-class="{active: vm.stepIsActive(2)}">Exercícios</span>
+            </md-content>
+            <md-content layout-padding>
+                <div layout="row">
+                    <div class="line" flex="5"></div>
+                    <div flex="95" class="step-content" ng-class="{active: vm.stepIsActive(2)}">
+                        <div layout="column" ng-show="vm.stepIsActive(2)" class="step-fade">
+                            <md-autocomplete md-selected-item="vm.exerciseSelected" md-search-text="vm.searchText" md-items="item in vm.exercises" md-item-text="item.name"
+                            md-min-length="0" placeholder="Procure por exercícios">
+                                <md-item-template>
+                                    <span md-highlight-flags="^i">{{item.name}}</span>
+                                </md-item-template>
+                                <md-not-found>
+                                    Nenhum exercício com o nome de "{{vm.searchText}}" foi encontrado.
+                                    <a ng-click="vm.newExercise(vm.searchText)">Adicionar um novo</a>
+                                </md-not-found>
+                            </md-autocomplete>
+                            <div layout="row" layout-align="end center" ng-if="vm.exerciseSelected != null">
+                                <md-button class="md-primary" ng-click="vm.addExercise()">Adicionar</md-button>
+                            </div>
+                        </div>
+
+                        <div layout="column">
+                            <md-list ng-model="vm.exercises" ui-sortable>
+                                <md-list-item class="md-2-line" ng-repeat="item in vm.exerciseList track by item.id">
+                                    <md-icon>menu</md-icon>
+                                    <div class="md-list-item-text">
+                                        <h3>{{item.name}}</h3>
+                                        <p>{{item.series}}x{{item.replays}}</p>
+                                    </div>
+                                    <div class="md-secondary">
+                                        <md-menu md-position-mode="target-right target">
+                                            <md-button aria-label="Abrir menu" class="md-icon-button" ng-click="$mdOpenMenu($event)">
+                                                <md-icon>more_vert</md-icon>
+                                            </md-button>
+                                            <md-menu-content width="3">
+                                                <md-menu-item>
+                                                    <md-button ng-click="ctrl.announceClick($index)">
+                                                        <md-icon>delete</md-icon>
+                                                        Excluir
+                                                    </md-button>
+                                                </md-menu-item>
+                                                <md-menu-item>
+                                                    <md-button ng-click="vm.show(true, item, $event)">
+                                                        <md-icon>edit</md-icon>
+                                                        Editar
+                                                    </md-button>
+                                                </md-menu-item>
+                                                <md-menu-item>
+                                                    <md-button ng-click="vm.show(false, item, $event)">
+                                                        <md-icon>info</md-icon>
+                                                        Visualizar
+                                                    </md-button>
+                                                </md-menu-item>
+                                                <md-menu-item>
+                                                    <md-button ng-click="vm.showAdvanced(item, $event)">
+                                                        <md-icon>star_rate</md-icon>
+                                                        Exercício avançado
+                                                    </md-button>
+                                                </md-menu-item>
+                                            </md-menu-content>
+                                        </md-menu>
+                                    </div>
+                                </md-list-item>
+                            </md-list>
                         </div>
                     </div>
-
-                    <div layout="column">
-                        <md-list ng-model="vm.exercises" ui-sortable>
-                            <md-list-item class="md-2-line" ng-repeat="item in vm.exerciseList track by item.id">
-                                <md-icon>menu</md-icon>
-                                <div class="md-list-item-text">
-                                    <h3>{{item.name}}</h3>
-                                    <p>{{item.series}}x{{item.replays}}</p>
-                                </div>
-                                <div class="md-secondary">
-                                    <md-menu md-position-mode="target-right target">
-                                        <md-button aria-label="Abrir menu" class="md-icon-button" ng-click="$mdOpenMenu($event)">
-                                            <md-icon>more_vert</md-icon>
-                                        </md-button>
-                                        <md-menu-content width="3">
-                                            <md-menu-item>
-                                                <md-button ng-click="ctrl.announceClick($index)">
-                                                    <md-icon>delete</md-icon>
-                                                    Excluir
-                                                </md-button>
-                                            </md-menu-item>
-                                            <md-menu-item>
-                                                <md-button ng-click="vm.show(true, item, $event)">
-                                                    <md-icon>edit</md-icon>
-                                                    Editar
-                                                </md-button>
-                                            </md-menu-item>
-                                            <md-menu-item>
-                                                <md-button ng-click="vm.show(false, item, $event)">
-                                                    <md-icon>info</md-icon>
-                                                    Visualizar
-                                                </md-button>
-                                            </md-menu-item>
-                                            <md-menu-item>
-                                                <md-button ng-click="vm.showAdvanced(item, $event)">
-                                                    <md-icon>star_rate</md-icon>
-                                                    Exercício avançado
-                                                </md-button>
-                                            </md-menu-item>
-                                        </md-menu-content>
-                                    </md-menu>
-                                </div>
-                            </md-list-item>
-                        </md-list>
+                </div>
+            </md-content>
+        </div>
+        <div id="section3" class="step">
+            <md-content ng-click="vm.setActive(3)">
+                <div class="circle" ng-class="{active: vm.stepIsActive(3)}">3</div>
+                <span class="step-title" ng-class="{active: vm.stepIsActive(3)}">Alunos</span>
+                <span class="step-subtitle" ng-class="{active: vm.stepIsActive(3)}">Adicione o treino para os alunos</span>
+            </md-content>
+            <md-content layout-padding>
+                <div layout="row">
+                    <div class="line" flex="5"></div>
+                    <div flex="95" class="step-content chipsdemoContactChips" ng-class="{active: vm.stepIsActive(3)}">
+                        <div layout="column" ng-show="vm.stepIsActive(3)" class="step-fade">
+                            <form name="membersForm" novalidate></form>
+                            <md-contact-chips required ng-model="vm.contacts" md-contacts="vm.querySearch($query)" md-contact-name="name" md-contact-image="image"
+                            md-contact-email="email" md-require-match="true" md-highlight-flags="i" filter-selected="true"
+                            placeholder="Alunos">
+                            </md-contact-chips>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </md-content>
-    </div>
-    <div id="section3" class="step">
-        <md-content ng-click="vm.setActive(3)">
-            <div class="circle" ng-class="{active: vm.stepIsActive(3)}">3</div>
-            <span class="step-title" ng-class="{active: vm.stepIsActive(3)}">Alunos</span>
-            <span class="step-subtitle" ng-class="{active: vm.stepIsActive(3)}">Adicione o treino para os alunos</span>
-        </md-content>
-        <md-content layout-padding>
-            <div layout="row">
-                <div class="line" flex="5"></div>
-                <div flex="95" class="step-content chipsdemoContactChips" ng-class="{active: vm.stepIsActive(3)}">
-                    <div layout="column" ng-show="vm.stepIsActive(3)" class="step-fade">
-                        <form name="membersForm" novalidate></form>
-                        <md-contact-chips required ng-model="vm.contacts" md-contacts="vm.querySearch($query)" md-contact-name="name" md-contact-image="image"
-                        md-contact-email="email" md-require-match="true" md-highlight-flags="i" filter-selected="true" placeholder="Alunos">
-                        </md-contact-chips>
-                    </div>
-                </div>
-            </div>
-        </md-content>
-    </div>
-    <div layout="row" ng-if="!trainningForm.$invalid">
-        <md-button class="md-accent md-raised">Finalizar</md-button>
-        <md-button class="md-accent">Cancelar</md-button>
-    </div>
-</md-card>
+            </md-content>
+        </div>
+        <div layout="row" ng-if="!trainningForm.$invalid">
+            <md-button class="md-accent md-raised">Finalizar</md-button>
+            <md-button class="md-accent">Cancelar</md-button>
+        </div>
+    </md-card>
+</div>

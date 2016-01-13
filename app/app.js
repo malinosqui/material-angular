@@ -1,7 +1,7 @@
 (function (angular) {
     'use strict';
 
-    angular.module('appMain', ['ngRoute', 'ngMaterial', 'ngAnimate', 'ui.sortable'])
+    angular.module('appMain', ['ngRoute', 'ngMaterial', 'ngAnimate', 'ui.sortable', 'directives'])
         .config(function ($mdThemingProvider, $mdIconProvider) {
 
             $mdThemingProvider.definePalette('custom-blue', {
