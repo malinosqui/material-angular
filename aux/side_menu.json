@@ -12,7 +12,7 @@
     {
         "name": "Treinos",
         "route": "trainnings",
-        "icon2": "weight-kilogram"
+        "icon": "timer"
     },
     {
         "name": "Exercícios",

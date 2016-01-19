@@ -70,7 +70,7 @@
         "category": "Super série",
         "dificulty": 4,
         "equipament": "Barra + pesos - Halter",
-        "children_exercises": [
+        "childrenExercises": [
             {
                 "id": 1,
                 "name": "Supino reto"

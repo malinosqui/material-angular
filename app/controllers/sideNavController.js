@@ -11,15 +11,16 @@
         var vm = this;
 
         vm.menus = [];
-        
+
         vm.toggleSidenav = function (menu) {
             $mdSidenav(menu).toggle();
         };
 
         vm.navigateTo = function (path) {
+            $mdSidenav('left').close();
             $location.path(path);
         }
-        
+
         $http.get('aux/side_menu.json').then(function (response) {
             vm.menus = response.data;
         });

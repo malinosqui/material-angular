@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="bower_components/angular-material/angular-material.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="bower_components/hover/css/hover-min.css">
     <link rel="manifest" href="manifest.json">
 </head>
 
@@ -89,7 +90,7 @@
 
                 </div>
             </md-toolbar>
-            <md-content class="inner-body fade" ng-view md-scroll-y flex layout-padding></md-content>
+            <md-content class="inner-body fade" test-directive ng-view md-scroll-y flex layout-padding></md-content>
         </section>
 
 
@@ -101,11 +102,11 @@
         <script src="bower_components/angular-aria/angular-aria.js"></script>
         <script src="bower_components/angular-route/angular-route.js"></script>
         <script src="bower_components/angular-material/angular-material.js"></script>
+        <script src="bower_components/angular-messages/angular-messages.js"></script>
         <script src="https://cdn.firebase.com/js/client/2.3.2/firebase.js"></script>
         <script src="https://cdn.firebase.com/libs/angularfire/1.1.3/angularfire.min.js"></script>
         <script src="bower_components/angular-ui-sortable/sortable.min.js"></script>
         <script src="app/app.js"></script>
-        <script src="app/directives/directives.js"></script>
         <script src="app/routes.js"></script>
         <script src="app/controllers/homeController.js"></script>
         <script src="app/controllers/sideNavController.js"></script>
@@ -113,7 +114,7 @@
         <script src="app/controllers/trainning/trainningController.js"></script>
         <script src="app/controllers/loginController.js"></script>
         <script src="app/controllers/exercise/exerciseController.js"></script>
-        <script src="app/directives/scrollHide/scrollHide.js"></script>
+        
 </body>
 
 </html>

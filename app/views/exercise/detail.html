@@ -1,0 +1,139 @@
+<div flex>
+    <md-card flex>
+        <md-toolbar class="md-accent" layout layout-align="end center">
+            <div class="md-toolbar-tools" style="width: 75%;" class="md-primary">
+                <span ng-show="!showFilter">
+                Cadastro de exercícios </span>
+            </div>
+            <span flex></span>
+            <md-menu md-position-mode="target-right target">
+                <md-button class="md-icon-button" aria-label="{{list.menu.name}}" ng-click="$mdOpenMenu($event)">
+                    <md-icon>settings</md-icon>
+                </md-button>
+                <md-menu-content width="4">
+                    <md-menu-item>
+                        <md-button ng-click="vm.fixOnDash('membersList')">
+                            <div layout="row">
+                                <p flex>Travar no Painel</p>
+                                <md-icon md-menu-align-target style="margin: auto 3px auto 0;">add</md-icon>
+                            </div>
+                        </md-button>
+                    </md-menu-item>
+                </md-menu-content>
+            </md-menu>
+            <md-button class="md-icon-button">
+                <md-icon>help</md-icon>
+            </md-button>
+        </md-toolbar>
+        <md-content layout="column" layout-align="start" flex="100" style="padding: 15px;" class="auto-content">
+            <form novalidate name="exerciseForm" layout="column">
+                <div layout="row">
+                    <md-input-container flex="50">
+                        <label>Nome</label>
+                        <input type="text" ng-model="vm.exercise.name" required />
+
+                    </md-input-container>
+
+                    <md-input-container flex="50">
+                        <label>Categoria</label>
+                        <md-select ng-model="vm.exercise.exerciseType" required>
+                            <md-option value="1">
+                                Peito
+                            </md-option>
+                            <md-option value="2">
+                                Costas
+                            </md-option>
+                            <md-option value="3">
+                                Bíceps
+                            </md-option>
+                            <md-option value="4">
+                                Tríceps
+                            </md-option>
+                            <md-option value="5">
+                                Aeróbico
+                            </md-option>
+                            <md-option value="6">
+                                Todos
+                            </md-option>
+                        </md-select>
+                    </md-input-container>
+                </div>
+                <div layout="row">
+                    <md-input-container flex="50">
+                        <label>Equipamento</label>
+                        <input type="text" ng-model="vm.exercise.equipment" />
+                    </md-input-container>
+
+                    <md-input-container flex="50">
+                        <label>Url do vídeo da execução</label>
+                        <input type="text" ng-model="vm.exercise.video" />
+                    </md-input-container>
+                </div>
+                <md-input-container>
+                    <label>Observação ou instruções</label>
+                    <textarea type="text" ng-model="exercise.obs" rows="5" md-maxlength="250" />
+                </md-input-container>
+                <md-checkbox ng-model="vm.exercise.advanced" aria-label="Exercício avançado">
+                    Exercício combinado
+                </md-checkbox>
+                <div ng-show="vm.exercise.advanced">
+                    <md-autocomplete md-input-name="autocompleteField" md-input-minlength="2" md-no-cache="vm.noCache" md-selected-item="vm.exerciseSelected"
+                    md-search-text="vm.searchText" md-items="item in vm.querySearch(vm.searchText)" md-item-text="item.name"
+                    md-floating-label="Exercício">
+                        <md-item-template>
+                            <span md-highlight-text="vm.searchText">{{item.name}}</span>
+                        </md-item-template>
+                    </md-autocomplete>
+                    <div layout="row" layout-align="end center" ng-if="vm.exerciseSelected != null">
+                        <md-button class="md-primary" id="btn-add-exercise" ng-click="vm.addExercise()" style="">Adicionar</md-button>
+                    </div>
+                    <div layout="column" flex class="m-t-m-40">
+                        <h3 class="md-primary">Exercícios do combinado</h3>
+                        <div layout="column" class="advanced-container">
+                            <h5 class="info-message" ng-if="vm.exercise.childrenExercises.length < 2"><md-icon md-svg-icon="information"></md-icon><span>Adicione pelo menos 2 exercícios ao combinado.</span></h5>
+                            <md-list ng-model="vm.exercises" ui-sortable>
+                                <md-list-item ng-repeat="item in vm.exercise.childrenExercises track by item.id" style="cursor: pointer; background-color: #fff; border: 1px solid #eee;">
+                                    <md-icon style="margin-left: 10px;">menu</md-icon>
+                                    <p> {{ item.name }} </p>
+                                    <md-button md-position-mode="md-icon-button" class="md-secondary">
+                                        <md-icon>delete</md-icon>
+                                    </md-button>
+                                    <!--<md-menu md-position-mode="target-right target" class="md-secondary">
+                                        <md-button aria-label="Abrir menu" class="md-icon-button holder" ng-click="$mdOpenMenu($event)">
+                                            <md-icon>more_vert</md-icon>
+                                        </md-button>
+                                        <!--<md-menu-content width="3">
+                                            <md-menu-item>
+                                                <md-button ng-click="vm.announceClick($index)">
+                                                    <md-icon>delete</md-icon>
+                                                    Excluir
+                                                </md-button>
+                                            </md-menu-item>
+                                            <!--<md-menu-item>
+                                            <md-button ng-click="vm.show(true, item, $event)">
+                                                <md-icon>edit</md-icon>
+                                                Editar
+                                            </md-button>
+                                        </md-menu-item>
+                                        <md-menu-item>
+                                            <md-button ng-click="vm.show(false, item, $event)">
+                                                <md-icon>info</md-icon>
+                                                Visualizar
+                                            </md-button>
+                                        </md-menu-item>
+                                        </md-menu-content>
+                                    </md-menu>-->
+                                </md-list-item>
+                            </md-list>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <div layout="row" ng-if="!exerciseForm.$invalid && (!vm.exercise.advanced || vm.exercise.childrenExercises.length >= 2)">
+                <md-button class="md-raised md-accent">Cancelar</md-button>
+                <md-button class="md-raised md-primary">Finalizar</md-button>
+            </div>
+        </md-content>
+
+    </md-card>
+</div>

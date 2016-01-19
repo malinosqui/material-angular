@@ -48,18 +48,20 @@
                 <md-icon>help</md-icon>
             </md-button>
         </md-toolbar>
-        <md-list-item class="md-2-line" ng-repeat="item in vm.exercises | filter: filter" ng-click="vm.navigateTo('members/' + item.id)">
-            <md-icon ng-if="!item.advanced">{{item.aerobic ? "directions_run" : "fitness_center"}}</md-icon>
-            <md-icon ng-if="item.advanced">star</md-icon>
-            <div class="md-list-item-text" layout="column">
-                <h3 class="md-body-2"><b>{{item.name}}</b></h3>
-                <p class="md-caption"><b>Categoria: </b>{{item.category}}</p>
-            </div>
-            <span flex></span>
-            <md-icon aria-label="Show Item">chevron_right</md-icon>
-        </md-list-item>
+        <md-content class="auto-content">
+            <md-list-item class="md-2-line" ng-repeat="item in vm.exercises | filter: filter" ng-click="vm.navigateTo('exercises/edit/' + item.id)">
+                <md-icon ng-if="!item.advanced">{{item.aerobic ? "directions_run" : "fitness_center"}}</md-icon>
+                <md-icon ng-if="item.advanced">star</md-icon>
+                <div class="md-list-item-text" layout="column">
+                    <h3 class="md-body-2"><b>{{item.name}}</b></h3>
+                    <p class="md-caption"><b>Categoria: </b>{{item.category}}</p>
+                </div>
+                <span flex></span>
+                <md-icon aria-label="Show Item">chevron_right</md-icon>
+            </md-list-item>
+        </md-content>
     </md-card>
 </div>
-<md-button class="md-fab fab-fixed" scroll-hide>
+<md-button class="md-fab fab-fixed md-primary" ng-click="vm.navigateTo('exercises/new')">
     <md-icon>add</md-icon>
 </md-button>

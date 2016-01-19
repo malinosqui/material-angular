@@ -23,10 +23,10 @@
 				controllerAs: 'vm', 
 				templateUrl: 'app/views/member/detail.html'
 			})
-            .when('/trainnings', {
+            .when('/trainnings/new', {
                 controller: 'TrainningController',
                 controllerAs: 'vm', 
-                templateUrl: 'app/views/trainning/create.html'
+                templateUrl: 'app/views/trainning/detail.html'
             })
             .when('/login', {
                 controller:'LoginController', 
@@ -37,6 +37,11 @@
                 controller: "ExerciseController",
                 controllerAs: 'vm', 
                 templateUrl: 'app/views/exercise/list.html'
+            })
+            .when('/exercises/new', {
+                controller: "ExerciseController",
+                controllerAs: "vm",
+                templateUrl: "app/views/exercise/detail.html"
             })
 			.otherwise({
 				controller: 'HomeController', 

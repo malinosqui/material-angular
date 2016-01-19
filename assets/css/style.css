@@ -141,6 +141,10 @@ display: block;
     animation:1s hide;
 }*/
 
+#section1 {
+    margin-top: 10px;
+}
+
 .step > md-content > .circle .ng-hide-add {
     animation: 0.2s hide;
 }
@@ -186,7 +190,7 @@ display: block;
 }
 
 .step{
-    padding: 10px;
+    padding: 15px;
 }
 
 .step > md-content:focus {
@@ -296,4 +300,52 @@ h1.title {
 }
 .md-fab.md-fab-bottom-right.hide2 {
     transform: translateY(200%);
+}
+
+.grow, .grow-small {
+    transition: all .2s ease-in-out;
+}
+
+.grow:hover{
+    transform: scale(1.2); 
+}
+
+.grow-small:hover{
+    transform: scale(1.1); 
+}
+
+.advanced-container{
+    background-color: #f5f5f5;
+    padding:10px;  
+}
+
+.holder {
+    cursor: pointer;
+}
+
+ #btn-add-exercise {
+    margin-top: -175px;
+}
+
+.m-t-m-40 {
+    margin-top: -40px;
+}
+
+@media only screen and (max-width:768px) {
+.auto-content {
+    max-height: 370px;
+}
+
+}
+
+.auto-content{
+    max-height: 470px;
+}
+
+.info-message > md-icon {
+    margin-top: -7px;
+}
+
+.info-message > span {
+    margin-left: 10px; color: rgba(0,0,0,0.54);
 }

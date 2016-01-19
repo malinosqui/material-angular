@@ -17,6 +17,7 @@
         vm.exercises = [];
         vm.exerciseList = []
         vm.allowEdit = false;
+        vm.trainning = { exercises: [] };
 
         vm.addExercise = addExercise;
         vm.querySearch = querySearch;
@@ -24,6 +25,7 @@
         vm.setActive = setActive;
         vm.show = show;
         vm.showAdvanced = showAdvanced;
+        vm.exerciseQuerySearch = exerciseQuerySearch;
 
         vm.contacts = [vm.allContacts[0]];
 
@@ -48,7 +50,9 @@
         function addExercise() {
             vm.exerciseSelected.series = 4;
             vm.exerciseSelected.replays = 10;
-            vm.exerciseList.push(vm.exerciseSelected);
+            vm.trainning.exercises.push(vm.exerciseSelected);
+            vm.exerciseSearchText = null;
+            vm.exerciseSelected = null;
         }
         /**
          * Search for contacts.
@@ -65,6 +69,19 @@
             var lowercaseQuery = angular.lowercase(query);
             return function filterFn(contact) {
                 return (contact._lowername.indexOf(lowercaseQuery) != -1);;
+            };
+        }
+
+
+        function exerciseQuerySearch(query) {
+            var results = query ? vm.exercises.filter(exerciseCreateFilterFor(query)) : [];
+            return results;
+        }
+
+        function exerciseCreateFilterFor(query) {
+            var lowercaseQuery = query.toLowerCase();
+            return function filterFn(exercise) {
+                return (exercise.name.toLowerCase().indexOf(lowercaseQuery) >= 0);
             };
         }
         function loadContacts() {
@@ -92,7 +109,12 @@
         }
 
         function show(edit, exercise, $event) {
-            showDialog(exercise, edit, $event);
+            if (!exercise.advanced) {
+                showDialog(exercise, edit, $event);
+            }
+            else {
+                showAdvanced(exercise, edit, $event);
+            }
         }
 
         function showDialog(exercise, edit, $event) {
@@ -119,7 +141,7 @@
             }
         }
 
-        function showAdvanced(item, $event) {
+        function showAdvanced(item, $event, edit) {
             var parentEl = angular.element(document.body);
             $mdDialog.show({
                 parent: parentEl,
@@ -127,17 +149,18 @@
                 templateUrl: "app/views/partials/dialogs/advancedExercise.html",
                 locals: {
                     exercise: item,
-                    exerciseList: vm.exercises
+                    exerciseList: vm.exercises, 
+                    editExercise: edit
                 },
                 controller: DialogController,
                 fullscreen: ($mdMedia('sm') || $mdMedia('xs'))
             });
-            function DialogController($scope, $mdDialog, exercise, exerciseList) {
+            function DialogController($scope, $mdDialog, exercise, editExercise) {
 
                 $scope.exercise = exercise;
-                $scope.exerciseList = exerciseList;
                 $scope.exercises = [];
                 $scope.advancedExercise = {};
+                $scope.editExercise = editExercise;
 
                 $scope.exercises.push($scope.exercise)
                 $scope.advancedExercise.name = $scope.exercise.name + " +";
@@ -153,28 +176,15 @@
                 }
 
                 $scope.edit = function (ex) {
-                    console.log(ex);
                     $scope.editExercise = ex;
-                    console.log($scope.editExercise);
                 }
 
                 $scope.finishEdit = function () {
-                    console.log($scope.editExercise);
                     $scope.editExercise = null;
-                    console.log($scope.editExercise);
                 }
 
                 $scope.save = function () {
-                    angular.forEach(vm.exerciseList, function (value, key) {
-                        if (value.id == $scope.exercise.id) {
-                            value = $scope.exercise;
-                            value.advanced = true;
-                            value.exercises = $scope.exercises;
-                            value.name = $scope.advancedExercise.name;
-                            $mdDialog.hide();
-                            console.log(value);
-                        }
-                    })
+                    
                 }
             }
         }
