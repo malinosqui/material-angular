@@ -1,0 +1,95 @@
+<div flex>
+    <div layout="row" layout-sm="column">
+        <md-card ng-drop="true" ng-drop-success="vm.onDropComplete1($data,$event)" flex>
+            <md-toolbar class="md-accent" layout layout-align="end center">
+                <div class="md-toolbar-tools" class="md-primary">
+                    <span> {{vm.days[0]}}</span>
+                </div>
+            </md-toolbar>
+            <div class="calendar-day-card-container" ng-repeat="obj in vm.droppedObjects1" ng-drag="true" ng-drag-data="obj" ng-drag-success="vm.onDragSuccess1($data,$event)">
+                <div class="calendar-inner-card">
+                    <span>{{obj.name}}</span>
+                </div>
+            </div>
+            <span ng-if="vm.droppedObjects1.length <= 0">Nenhum treino para esse dia.</span>
+        </md-card>
+        <md-card ng-drop="true" ng-drop-success="vm.onDropComplete2($data,$event)" flex>
+            <md-toolbar class="md-accent" layout layout-align="end center">
+                <div class="md-toolbar-tools" class="md-primary">
+                    <span> {{vm.days[1]}}</span>
+                </div>
+            </md-toolbar>
+            <div class="calendar-day-card-container" ng-repeat="obj in vm.droppedObjects2" ng-drag="true" ng-drag-data="obj" ng-drag-success="vm.onDragSuccess2($data,$event)">
+                <div class="calendar-inner-card">
+                    <span>{{obj.name}}</span>
+                </div>
+            </div>
+            <!--<span ng-if="vm.droppedObjects2.length <= 0">Nenhum treino para esse dia.</span>-->
+        </md-card>
+        <md-card ng-drop="true" ng-drop-success="vm.onDropComplete3($data,$event)" flex>
+            <md-toolbar class="md-accent" layout layout-align="end center">
+                <div class="md-toolbar-tools" class="md-primary">
+                    <span> {{vm.days[2]}}</span>
+                </div>
+            </md-toolbar>
+            <div class="calendar-day-card-container" ng-repeat="obj in vm.droppedObjects3" ng-drag="true" ng-drag-data="obj" ng-drag-success="vm.onDragSuccess3($data,$event)">
+                <div class="calendar-inner-card">
+                    <span>{{obj.name}}</span>
+                </div>
+            </div>
+            <!--<span ng-if="vm.droppedObjects2.length <= 0">Nenhum treino para esse dia.</span>-->
+        </md-card>
+        <md-card ng-drop="true" ng-drop-success="vm.onDropComplete3($data,$event)" flex>
+            <md-toolbar class="md-accent" layout layout-align="end center">
+                <div class="md-toolbar-tools" class="md-primary">
+                    <span> {{vm.days[3]}}</span>
+                </div>
+            </md-toolbar>
+            <div class="calendar-day-card-container" ng-repeat="obj in vm.droppedObjects3" ng-drag="true" ng-drag-data="obj" ng-drag-success="vm.onDragSuccess3($data,$event)">
+                <div class="calendar-inner-card">
+                    <span>{{obj.name}}</span>
+                </div>
+            </div>
+            <!--<span ng-if="vm.droppedObjects2.length <= 0">Nenhum treino para esse dia.</span>-->
+        </md-card>
+        <md-card ng-drop="true" ng-drop-success="vm.onDropComplete3($data,$event)" flex>
+            <md-toolbar class="md-accent" layout layout-align="end center">
+                <div class="md-toolbar-tools" class="md-primary">
+                    <span> {{vm.days[4]}}</span>
+                </div>
+            </md-toolbar>
+            <div class="calendar-day-card-container" ng-repeat="obj in vm.droppedObjects3" ng-drag="true" ng-drag-data="obj" ng-drag-success="vm.onDragSuccess3($data,$event)">
+                <div class="calendar-inner-card">
+                    <span>{{obj.name}}</span>
+                </div>
+            </div>
+            <!--<span ng-if="vm.droppedObjects2.length <= 0">Nenhum treino para esse dia.</span>-->
+        </md-card>
+        <md-card ng-drop="true" ng-drop-success="vm.onDropComplete3($data,$event)" flex>
+            <md-toolbar class="md-accent" layout layout-align="end center">
+                <div class="md-toolbar-tools" class="md-primary">
+                    <span> {{vm.days[5]}}</span>
+                </div>
+            </md-toolbar>
+            <div class="calendar-day-card-container" ng-repeat="obj in vm.droppedObjects3" ng-drag="true" ng-drag-data="obj" ng-drag-success="vm.onDragSuccess3($data,$event)">
+                <div class="calendar-inner-card">
+                    <span>{{obj.name}}</span>
+                </div>
+            </div>
+            <!--<span ng-if="vm.droppedObjects2.length <= 0">Nenhum treino para esse dia.</span>-->
+        </md-card>
+        <md-card ng-drop="true" ng-drop-success="vm.onDropComplete3($data,$event)">
+            <md-toolbar class="md-accent" layout layout-align="end center">
+                <div class="md-toolbar-tools" class="md-primary">
+                    <span> {{vm.days[6]}}</span>
+                </div>
+            </md-toolbar>
+            <div class="calendar-day-card-container" ng-repeat="obj in vm.droppedObjects3" ng-drag="true" ng-drag-data="obj" ng-drag-success="vm.onDragSuccess3($data,$event)">
+                <div class="calendar-inner-card">
+                    <span>{{obj.name}}</span>
+                </div>
+            </div>
+            <!--<span ng-if="vm.droppedObjects2.length <= 0">Nenhum treino para esse dia.</span>-->
+        </md-card>
+    </div>
+</div>

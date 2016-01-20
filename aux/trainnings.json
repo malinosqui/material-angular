@@ -1,0 +1,107 @@
+[
+    {
+        "id": 1,
+        "name": "Treino A",
+        "dificulty": "Fácil",
+        "description": "Treino de fortalecimento de peitoral",
+        "exercises": [
+            {
+                "id:": "1"
+            },
+            {
+                "id": "2"
+            },
+            {
+                "id": "3"
+            }
+        ],
+        "members": [
+            {
+                "id": "1",
+                "name": "Gabriel Malinosqui",
+                "image": "https://s3.amazonaws.com/uifaces/faces/twitter/9lessons/128.jpg"
+            },
+            {
+                "id": "2",
+                "name": "João Silva",
+                "image": "https://s3.amazonaws.com/uifaces/faces/twitter/felipenogs/128.jpg"
+            },
+            {
+                "id": "3",
+                "name": "Bruna Santos",
+                "image": "https://s3.amazonaws.com/uifaces/faces/twitter/pixeliris/128.jpg"
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "name": "Treino B",
+        "dificulty": "Moderado",
+        "description": "Treino de fortalecimento de costas",
+        "exercises": [
+            {
+                "id:": "1"
+            },
+            {
+                "id": "2"
+            },
+            {
+                "id": "3"
+            }
+        ],
+        "members": [
+            {
+                "id": "2",
+                "name": "João Silva",
+                "image": "https://s3.amazonaws.com/uifaces/faces/twitter/felipenogs/128.jpg"
+            },
+            {
+                "id": "3",
+                "name": "Bruna Santos",
+                "image": "https://s3.amazonaws.com/uifaces/faces/twitter/pixeliris/128.jpg"
+            }
+        ]
+    },
+    {
+        "id": 3,
+        "name": "Treino C",
+        "dificulty": "Insano",
+        "description": "Treino de força, pra esmagar",
+        "exercises": [
+            {
+                "id:": "1"
+            },
+            {
+                "id": "2"
+            },
+            {
+                "id": "3"
+            }
+        ],
+        "members": [
+            {
+                "id": "3",
+                "name": "Bruna Santos",
+                "image": "https://s3.amazonaws.com/uifaces/faces/twitter/pixeliris/128.jpg"
+            }
+        ]
+    },
+    {
+        "id": 4,
+        "name": "Treino adaptação",
+        "dificulty": "Fácil",
+        "description": "Treino de adaptação",
+        "exercises": [
+            {
+                "id:": "1"
+            },
+            {
+                "id": "2"
+            },
+            {
+                "id": "3"
+            }
+        ],
+        "members": []
+    }
+]

@@ -31,7 +31,7 @@
                         <md-tooltip md-direction="bottom">
                             Cadastrar metas
                         </md-tooltip>
-                        <md-icon md-svg-icon="trophy-award"> </md-icon>
+                        <md-icon md-svg-icon="trophy"> </md-icon>
                     </md-button>
                     <md-button class="md-icon-button grow" ng-click="vm.showMessageDialog($event)" hide-xs>
                         <md-tooltip md-direction="bottom">
@@ -157,18 +157,23 @@
             <md-fab-actions>
                 <md-button aria-label="mensagem" class="md-fab md-raised md-mini md-accent" ng-click="vm.showMessageDialog($event)">
                     <md-icon>message</md-icon>
+                    <md-tooltip md-direction="left">Mensagem</md-tooltip>
                 </md-button>
                 <md-button aria-label="metas" class="md-fab md-raised md-mini md-accent">
-                    <md-icon md-svg-icon="trophy-award"></md-icon>
+                    <md-icon md-svg-icon="trophy"></md-icon>
+                    <md-tooltip md-direction="left">Metas</md-tooltip>
                 </md-button>
                 <md-button aria-label="agenda" class="md-fab md-raised md-mini md-accent">
                     <md-icon>today</md-icon>
+                    <md-tooltip md-direction="left">Agenda</md-tooltip>
                 </md-button>
                 <md-button aria-label="avaliação física" class="md-fab md-raised md-mini md-accent">
                     <md-icon>accessibility</md-icon>
+                    <md-tooltip md-direction="left">Avaliação física</md-tooltip>
                 </md-button>
                 <md-button aria-label="favoritar" class="md-fab md-raised md-mini md-accent">
                     <md-icon>timer</md-icon>
+                    <md-tooltip md-direction="left">Treino</md-tooltip>
                 </md-button>
             </md-fab-actions>
         </md-fab-speed-dial>

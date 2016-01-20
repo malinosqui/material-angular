@@ -23,6 +23,11 @@
 				controllerAs: 'vm', 
 				templateUrl: 'app/views/member/detail.html'
 			})
+            .when('/members/:id/agenda', {
+                controller: 'AgendaController', 
+                controllerAs: 'vm', 
+                templateUrl: 'app/views/member/agenda.html'
+            })
             .when('/trainnings/', {
                 controller: 'TrainningController',
                 controllerAs: 'vm', 

@@ -18,6 +18,7 @@
         vm.exerciseList = []
         vm.allowEdit = false;
         vm.trainning = { exercises: [] };
+        vm.trainnings = [];
 
         vm.addExercise = addExercise;
         vm.querySearch = querySearch;
@@ -26,6 +27,7 @@
         vm.show = show;
         vm.showAdvanced = showAdvanced;
         vm.exerciseQuerySearch = exerciseQuerySearch;
+        vm.navigateTo = navigateTo;
 
         vm.contacts = [vm.allContacts[0]];
 
@@ -33,6 +35,7 @@
             vm.exercises = response.data;
         });
 
+        getTrainnings();
 
         function setActive(step) {
             vm.activeStep = step;
@@ -149,7 +152,7 @@
                 templateUrl: "app/views/partials/dialogs/advancedExercise.html",
                 locals: {
                     exercise: item,
-                    exerciseList: vm.exercises, 
+                    exerciseList: vm.exercises,
                     editExercise: edit
                 },
                 controller: DialogController,
@@ -184,9 +187,26 @@
                 }
 
                 $scope.save = function () {
-                    
+
                 }
             }
         }
+
+        function getTrainnings() {
+            $http.get('aux/trainnings.json').then(function (response) {
+                vm.trainnings = response.data;
+                angular.forEach(vm.trainnings, function (value, key) {
+                    var images = ['fit_web_headers_v1_bike.png', 'fit_web_headers_v1_body.png', 'fit_web_headers_v1_outdoor.png', 'fit_web_headers_v1_run.png', 'fit_web_headers_v1_strength.png',
+                        'fit_web_headers_v1_walk_a.png', 'fit_web_headers_v1_walk_b.png'];
+                    var randomCount = Math.round(Math.random() * (images.length - 2)) + 1;
+                    value.imageBg = "/assets/images/" + images[randomCount];
+                });
+            });
+        }
+
+        function navigateTo(path) {
+            $location.path(path);
+        }
+
     }
 })();

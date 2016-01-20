@@ -1,102 +1,52 @@
 <div class="md-padding" layout="row" layout-wrap layout-align="center start" layout-xs="column">
-    <div flex="50" flex-xs="100" layout="column">
-        <md-card>
+    <div flex="50" flex-xs="100" layout="column" ng-repeat="item in vm.trainnings">
+        <md-card class="trainning-card">
             <md-card-header>
-                <md-card-avatar>
-                    <md-icon class="md-avatar-icon" md-svg-icon="img/icons/menu.svg"></md-icon>
+                <md-card-avatar ng-repeat="member in item.members| limitTo: 4 track by member.id">
+                    <img src="{{member.image}}" class="profile-trainnning-thumb" alt="">
+                    <md-tooltip>{{member.name}}</md-tooltip>
                 </md-card-avatar>
-                <md-card-avatar>
-                    <md-icon class="md-avatar-icon" md-svg-icon="img/icons/menu.svg"></md-icon>
-                </md-card-avatar>
-                <md-card-avatar>
-                    <md-icon class="md-avatar-icon" md-svg-icon="img/icons/menu.svg"></md-icon>
-                </md-card-avatar>
+                <h5 class="info-message" ng-if="item.members <= 0"><md-icon md-svg-icon="emoticon-sad"></md-icon><span>Nenhum aluno com esse treino.</span></h5>
                 <span flex></span>
-                <md-button class="md-icon-button">
-                    <md-icon>more_vert</md-icon>
-                </md-button>
+                <md-menu md-position-mode="target-right target">
+                    <md-button class="md-icon-button" aria-label="{{list.menu.name}}" ng-click="$mdOpenMenu($event)">
+                        <md-icon>more_vert</md-icon>
+                    </md-button>
+                    <md-menu-content width="4">
+                        <md-menu-item>
+                            <md-button ng-click="vm.fixOnDash('membersList')">
+                                <div layout="row">
+                                    <p flex>Visualizar</p>
+                                    <md-icon md-menu-align-target style="margin: auto 3px auto 0;">info</md-icon>
+                                </div>
+                            </md-button>
+                        </md-menu-item>
+                        <md-menu-item>
+                            <md-button ng-click="vm.fixOnDash('membersList')">
+                                <div layout="row">
+                                    <p flex>Enviar por email</p>
+                                    <md-icon md-menu-align-target style="margin: auto 3px auto 0;">email</md-icon>
+                                </div>
+                            </md-button>
+                        </md-menu-item>
+                        <md-menu-item>
+                            <md-button ng-click="vm.fixOnDash('membersList')">
+                                <div layout="row">
+                                    <p flex>Excluir</p>
+                                    <md-icon md-menu-align-target style="margin: auto 3px auto 0;">delete</md-icon>
+                                </div>
+                            </md-button>
+                        </md-menu-item>
+                    </md-menu-content>
+                </md-menu>
             </md-card-header>
-            <img ng-src="assets/images/fit_web_headers_v1_strength.png" class="md-card-image" alt="Washed Out">
-            <md-card-title>
-                <md-card-title-text>
-                    <span class="md-headline">Treino A</span>
-
-                </md-card-title-text>
-            </md-card-title>
-            <md-card-actions layout="row" layout-align="start center">
-            </md-card-actions>
-            <md-card-content>
-                <p>
-                    The titles of Washed Out's breakthrough song and the first single from Paracosm share the two most important words in Ernest
-                    Greene's musical language: feel it. It's a simple request, as well...
-                </p>
-            </md-card-content>
-        </md-card>
-        <md-card>
-            <md-card-header>
-                <md-card-avatar>
-                    <md-icon class="md-avatar-icon" md-svg-icon="img/icons/menu.svg"></md-icon>
-                </md-card-avatar>
-                <md-card-avatar>
-                    <md-icon class="md-avatar-icon" md-svg-icon="img/icons/menu.svg"></md-icon>
-                </md-card-avatar>
-                <md-card-avatar>
-                    <md-icon class="md-avatar-icon" md-svg-icon="img/icons/menu.svg"></md-icon>
-                </md-card-avatar>
-                <span flex></span>
-                <md-button class="md-icon-button">
-                    <md-icon>more_vert</md-icon>
-                </md-button>
-            </md-card-header>
-            <img ng-src="assets/images/fit_web_headers_v1_walk_a.png" class="md-card-image" alt="Washed Out">
-            <md-card-title>
-                <md-card-title-text>
-                    <span class="md-headline">Treino B</span>
-
-                </md-card-title-text>
-            </md-card-title>
-            <md-card-actions layout="row" layout-align="start center">
-            </md-card-actions>
-            <md-card-content>
-                <p>
-                    The titles of Washed Out's breakthrough song and the first single from Paracosm share the two most important words in Ernest
-                    Greene's musical language: feel it. It's a simple request, as well...
-                </p>
-            </md-card-content>
-        </md-card>
-    </div>
-    <div flex="50" flex-xs="100" layout="column">
-        <md-card>
-            <md-card-header>
-                <md-card-avatar>
-                    <md-icon class="md-avatar-icon" md-svg-icon="img/icons/menu.svg"></md-icon>
-                </md-card-avatar>
-                <md-card-avatar>
-                    <md-icon class="md-avatar-icon" md-svg-icon="img/icons/menu.svg"></md-icon>
-                </md-card-avatar>
-                <md-card-avatar>
-                    <md-icon class="md-avatar-icon" md-svg-icon="img/icons/menu.svg"></md-icon>
-                </md-card-avatar>
-                <span flex></span>
-                <md-button class="md-icon-button">
-                    <md-icon>more_vert</md-icon>
-                </md-button>
-            </md-card-header>
-            <img ng-src="assets/images/fit_web_headers_v1_body.png" class="md-card-image" alt="Washed Out">
-            <md-card-title>
-                <md-card-title-text>
-                    <span class="md-headline">Treino C</span>
-
-                </md-card-title-text>
-            </md-card-title>
-            <md-card-actions layout="row" layout-align="start center">
-            </md-card-actions>
-            <md-card-content>
-                <p>
-                    The titles of Washed Out's breakthrough song and the first single from Paracosm share the two most important words in Ernest
-                    Greene's musical language: feel it. It's a simple request, as well...
-                </p>
-            </md-card-content>
+            <img ng-src="{{item.imageBg}}" class="md-card-image" alt="Washed Out">
+            <div class="info">
+                <b>{{item.name}}</b> - <span>{{item.description}}</span>
+            </div>
         </md-card>
     </div>
 </div>
+<md-button class="md-fab fab-fixed md-primary" ng-click="vm.navigateTo('trainnings/new')">
+    <md-icon>add</md-icon>
+</md-button>

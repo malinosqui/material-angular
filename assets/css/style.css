@@ -342,10 +342,51 @@ h1.title {
     max-height: 470px;
 }
 
+.info-message{
+        margin-bottom: -5px;
+}
+
 .info-message > md-icon {
     margin-top: -7px;
 }
 
 .info-message > span {
     margin-left: 10px; color: rgba(0,0,0,0.54);
+}
+
+.trainning-card > .info {
+    background-color: rgb(43,46,74);
+    color: #fff;
+    margin-top: -55px;
+    padding: 15px;
+    height: 25px;
+    opacity: 0;
+     visibility: hidden;
+    -webkit-transition: opacity 0.5s;
+    -moz-transition: opacity 0.5;
+    transition: opacity 0.5s;
+}
+
+.trainning-card:hover > .info {
+     opacity: 1;
+     visibility: visible;
+}
+
+.profile-trainnning-thumb{
+     width: 40px;
+    height: 40px;
+    overflow: hidden;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: cover;
+    border-radius: 50%;
+}
+
+.calendar-inner-card
+{
+    background-color: rgb(43,46,74); padding: 10px; color: #fff;
+}
+
+.calendar-day-card-container{
+    border: 5px;
 }
