@@ -390,3 +390,12 @@ h1.title {
 .calendar-day-card-container{
     border: 5px;
 }
+
+.calendar-card > .message-container {
+       margin-top: auto;
+    margin-bottom: auto;
+}
+
+.calendar-card > .message-container > span {
+    line-height: 24px; font-size: 15px; margin-right: 10px;
+}

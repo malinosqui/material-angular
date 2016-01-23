@@ -1,95 +1,157 @@
 <div flex>
     <div layout="row" layout-sm="column">
-        <md-card ng-drop="true" ng-drop-success="vm.onDropComplete1($data,$event)" flex>
+        <md-card ng-drop="false">
+            <md-toolbar class="md-primary" layout layout-align="end center">
+                <div class="md-toolbar-tools" class="md-primary">
+                    <span> Treinos disponiveis</span>
+                </div>
+            </md-toolbar>
+            <div class="calendar-day-card-container" ng-repeat="obj in vm.avaibleTrainnings" ng-drag="true" ng-drag-data="obj">
+                <div class="calendar-inner-card">
+                    <span>{{obj.name}}</span>
+                    <span ng-if="vm.avaibleTrainnings.length <= 0">Nenhum treino dísponivel para alocação.</span>
+                </div>
+            </div>
+
+        </md-card>
+        <md-card ng-drop="true" ng-drop-success="vm.onDropComplete1($data,$event)" flex class="calendar-card">
             <md-toolbar class="md-accent" layout layout-align="end center">
                 <div class="md-toolbar-tools" class="md-primary">
                     <span> {{vm.days[0]}}</span>
                 </div>
             </md-toolbar>
             <div class="calendar-day-card-container" ng-repeat="obj in vm.droppedObjects1" ng-drag="true" ng-drag-data="obj" ng-drag-success="vm.onDragSuccess1($data,$event)">
-                <div class="calendar-inner-card">
-                    <span>{{obj.name}}</span>
+                <div class="calendar-inner-card" layout="row">
+                    <span style="line-height: 40px">{{obj.name}} </span>
+                    <span flex></span>
+                    <md-button class="md-icon-button" ng-click="vm.deleteFrom1($index)">
+                        <md-icon style="color: #fff;">delete</md-icon>
+                    </md-button>
                 </div>
             </div>
-            <span ng-if="vm.droppedObjects1.length <= 0">Nenhum treino para esse dia.</span>
+            <div layout="row" ng-if="vm.droppedObjects1.length <= 0" class="message-container">
+                <md-icon md-svg-icon="emoticon-sad"></md-icon> <span>Nenhum treino para esse dia.</span>
+            </div>
+
         </md-card>
-        <md-card ng-drop="true" ng-drop-success="vm.onDropComplete2($data,$event)" flex>
+        <md-card ng-drop="true" ng-drop-success="vm.onDropComplete2($data,$event)" flex class="calendar-card">
             <md-toolbar class="md-accent" layout layout-align="end center">
                 <div class="md-toolbar-tools" class="md-primary">
                     <span> {{vm.days[1]}}</span>
                 </div>
             </md-toolbar>
             <div class="calendar-day-card-container" ng-repeat="obj in vm.droppedObjects2" ng-drag="true" ng-drag-data="obj" ng-drag-success="vm.onDragSuccess2($data,$event)">
-                <div class="calendar-inner-card">
-                    <span>{{obj.name}}</span>
+                <div class="calendar-inner-card" layout="row">
+                    <span style="line-height: 40px">{{obj.name}} </span>
+                    <span flex></span>
+                    <md-button class="md-icon-button" ng-click="vm.deleteFrom2($index)">
+                        <md-icon style="color: #fff;">delete</md-icon>
+                    </md-button>
                 </div>
             </div>
-            <!--<span ng-if="vm.droppedObjects2.length <= 0">Nenhum treino para esse dia.</span>-->
+            <div layout="row" ng-if="vm.droppedObjects2.length <= 0" class="message-container">
+                <md-icon md-svg-icon="emoticon-sad"></md-icon> <span>Nenhum treino para esse dia.</span>
+            </div>
         </md-card>
-        <md-card ng-drop="true" ng-drop-success="vm.onDropComplete3($data,$event)" flex>
+        <md-card ng-drop="true" ng-drop-success="vm.onDropComplete3($data,$event)" flex class="calendar-card">
             <md-toolbar class="md-accent" layout layout-align="end center">
                 <div class="md-toolbar-tools" class="md-primary">
                     <span> {{vm.days[2]}}</span>
                 </div>
             </md-toolbar>
             <div class="calendar-day-card-container" ng-repeat="obj in vm.droppedObjects3" ng-drag="true" ng-drag-data="obj" ng-drag-success="vm.onDragSuccess3($data,$event)">
-                <div class="calendar-inner-card">
-                    <span>{{obj.name}}</span>
+                <div class="calendar-inner-card" layout="row">
+                    <span style="line-height: 40px">{{obj.name}} </span>
+                    <span flex></span>
+                    <md-button class="md-icon-button" ng-click="vm.deleteFrom3($index)">
+                        <md-icon style="color: #fff;">delete</md-icon>
+                    </md-button>
                 </div>
             </div>
-            <!--<span ng-if="vm.droppedObjects2.length <= 0">Nenhum treino para esse dia.</span>-->
-        </md-card>
-        <md-card ng-drop="true" ng-drop-success="vm.onDropComplete3($data,$event)" flex>
+            <div layout="row" ng-if="vm.droppedObjects3.length <= 0" class="message-container">
+                <md-icon md-svg-icon="emoticon-sad"></md-icon> <span>Nenhum treino para esse dia.</span>
+            </div </md-card>
+    </div>
+    <div layout="row">
+        <md-card ng-drop="true" ng-drop-success="vm.onDropComplete4($data,$event)" flex class="calendar-card">
             <md-toolbar class="md-accent" layout layout-align="end center">
                 <div class="md-toolbar-tools" class="md-primary">
                     <span> {{vm.days[3]}}</span>
                 </div>
             </md-toolbar>
-            <div class="calendar-day-card-container" ng-repeat="obj in vm.droppedObjects3" ng-drag="true" ng-drag-data="obj" ng-drag-success="vm.onDragSuccess3($data,$event)">
-                <div class="calendar-inner-card">
-                    <span>{{obj.name}}</span>
+            <div class="calendar-day-card-container" ng-repeat="obj in vm.droppedObjects4" ng-drag="true" ng-drag-data="obj" ng-drag-success="vm.onDragSuccess4($data,$event)">
+                <div class="calendar-inner-card" layout="row">
+                    <span style="line-height: 40px">{{obj.name}} </span>
+                    <span flex></span>
+                    <md-button class="md-icon-button" ng-click="vm.deleteFrom4($index)">
+                        <md-icon style="color: #fff;">delete</md-icon>
+                    </md-button>
                 </div>
             </div>
-            <!--<span ng-if="vm.droppedObjects2.length <= 0">Nenhum treino para esse dia.</span>-->
+            <div layout="row" ng-if="vm.droppedObjects4.length <= 0" class="message-container">
+                <md-icon md-svg-icon="emoticon-sad"></md-icon> <span>Nenhum treino para esse dia.</span>
+            </div>
         </md-card>
-        <md-card ng-drop="true" ng-drop-success="vm.onDropComplete3($data,$event)" flex>
+        <md-card ng-drop="true" ng-drop-success="vm.onDropComplete5($data,$event)" flex class="calendar-card">
             <md-toolbar class="md-accent" layout layout-align="end center">
                 <div class="md-toolbar-tools" class="md-primary">
                     <span> {{vm.days[4]}}</span>
                 </div>
             </md-toolbar>
-            <div class="calendar-day-card-container" ng-repeat="obj in vm.droppedObjects3" ng-drag="true" ng-drag-data="obj" ng-drag-success="vm.onDragSuccess3($data,$event)">
-                <div class="calendar-inner-card">
-                    <span>{{obj.name}}</span>
+            <div class="calendar-day-card-container" ng-repeat="obj in vm.droppedObjects5" ng-drag="true" ng-drag-data="obj" ng-drag-success="vm.onDragSuccess5($data,$event)">
+                <div class="calendar-inner-card" layout="row">
+                    <span style="line-height: 40px">{{obj.name}} </span>
+                    <span flex></span>
+                    <md-button class="md-icon-button" ng-click="vm.deleteFrom5($index)">
+                        <md-icon style="color: #fff;">delete</md-icon>
+                    </md-button>
                 </div>
             </div>
-            <!--<span ng-if="vm.droppedObjects2.length <= 0">Nenhum treino para esse dia.</span>-->
+            <div layout="row" ng-if="vm.droppedObjects5.length <= 0" class="message-container">
+                <md-icon md-svg-icon="emoticon-sad"></md-icon> <span>Nenhum treino para esse dia.</span>
+            </div>
         </md-card>
-        <md-card ng-drop="true" ng-drop-success="vm.onDropComplete3($data,$event)" flex>
+        <md-card ng-drop="true" ng-drop-success="vm.onDropComplete6($data,$event)" flex class="calendar-card">
             <md-toolbar class="md-accent" layout layout-align="end center">
                 <div class="md-toolbar-tools" class="md-primary">
                     <span> {{vm.days[5]}}</span>
                 </div>
             </md-toolbar>
-            <div class="calendar-day-card-container" ng-repeat="obj in vm.droppedObjects3" ng-drag="true" ng-drag-data="obj" ng-drag-success="vm.onDragSuccess3($data,$event)">
-                <div class="calendar-inner-card">
-                    <span>{{obj.name}}</span>
+            <div class="calendar-day-card-container" ng-repeat="obj in vm.droppedObjects6" ng-drag="true" ng-drag-data="obj" ng-drag-success="vm.onDragSuccess6($data,$event)">
+                <div class="calendar-inner-card" layout="row">
+                    <span style="line-height: 40px">{{obj.name}} </span>
+                    <span flex></span>
+                    <md-button class="md-icon-button" ng-click="vm.deleteFrom6($index)">
+                        <md-icon style="color: #fff;">delete</md-icon>
+                    </md-button>
                 </div>
             </div>
-            <!--<span ng-if="vm.droppedObjects2.length <= 0">Nenhum treino para esse dia.</span>-->
+            <div layout="row" ng-if="vm.droppedObjects6.length <= 0" class="message-container">
+                <md-icon md-svg-icon="emoticon-sad"></md-icon> <span>Nenhum treino para esse dia.</span>
+            </div>
         </md-card>
-        <md-card ng-drop="true" ng-drop-success="vm.onDropComplete3($data,$event)">
+        <md-card ng-drop="true" ng-drop-success="vm.onDropComplete7($data,$event)" flex class="calendar-card">
             <md-toolbar class="md-accent" layout layout-align="end center">
                 <div class="md-toolbar-tools" class="md-primary">
                     <span> {{vm.days[6]}}</span>
                 </div>
             </md-toolbar>
-            <div class="calendar-day-card-container" ng-repeat="obj in vm.droppedObjects3" ng-drag="true" ng-drag-data="obj" ng-drag-success="vm.onDragSuccess3($data,$event)">
-                <div class="calendar-inner-card">
-                    <span>{{obj.name}}</span>
+            <div class="calendar-day-card-container" ng-repeat="obj in vm.droppedObjects7" ng-drag="true" ng-drag-data="obj" ng-drag-success="vm.onDragSuccess7($data,$event)">
+                <div class="calendar-inner-card" layout="row">
+                    <span style="line-height: 40px">{{obj.name}} </span>
+                    <span flex></span>
+                    <md-button class="md-icon-button" ng-click="vm.deleteFrom7($index)">
+                        <md-icon style="color: #fff;">delete</md-icon>
+                    </md-button>
                 </div>
             </div>
-            <!--<span ng-if="vm.droppedObjects2.length <= 0">Nenhum treino para esse dia.</span>-->
+            <div layout="row" ng-if="vm.droppedObjects7.length <= 0" class="message-container">
+                <md-icon md-svg-icon="emoticon-sad"></md-icon> <span>Nenhum treino para esse dia.</span>
+            </div>
         </md-card>
     </div>
 </div>
+
+<md-button class="md-fab fab-fixed md-primary" ng-click="vm.navigateTo('exercises/new')">
+    <md-icon>done</md-icon>
+</md-button>
